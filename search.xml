@@ -17,4 +17,37 @@
         <tag>test</tag>
       </tags>
   </entry>
+  <entry>
+    <title>如何永久白嫖 Microsoft Office 365</title>
+    <url>/2022/08/01/office-365/</url>
+    <content><![CDATA[<h2 id="一、Office-Tool-Plus"><a href="#一、Office-Tool-Plus" class="headerlink" title="一、Office Tool Plus"></a>一、Office Tool Plus</h2><h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><p><a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> 是一款 Office 小工具，可以帮助您部署 Office</p>
+<h3 id="2、下载"><a href="#2、下载" class="headerlink" title="2、下载"></a>2、下载</h3><p><a href="https://otp.landian.vip/redirect/download.php?type=runtime&amp;site=sdumirror">点击此处</a>以通过官网下载可直接运行的 zip 包</p>
+<p>更多下载选项请<a href="https://otp.landian.vip/zh-cn/download.html">点击此处</a>。</p>
+<h2 id="二、部署-Office"><a href="#二、部署-Office" class="headerlink" title="二、部署 Office"></a>二、部署 Office</h2><ol>
+<li>在 <code>部署</code> 选项卡中添加 <code>Microsoft 365 企业应用版</code> 并按需选择应用程序</li>
+<li><code>通道</code> 可自行选择（不同通道的更新频率不同）</li>
+<li>建议选中 <code>下载后再部署</code>，速度更快</li>
+<li><code>创建桌面快捷方式</code> 按需勾选即可</li>
+<li>点击开始部署</li>
+</ol>
+<p><img data-src="/images/office-365/deploy.png" alt="部署"></p>
+<h2 id="三、激活-Office"><a href="#三、激活-Office" class="headerlink" title="三、激活 Office"></a>三、激活 Office</h2><ol>
+<li>切换到 <code>激活</code> 选项卡，在 <code>许可证管理</code> 中选择 <code>Office Mondo 2016 - 批量许可证</code>并点击 <code>安装许可证</code></li>
+<li>在 <code>KMS 主机</code> 中填入 <code>kms.03k.org</code>，端口留空，点击 <code>保存设置</code></li>
+<li>等待 3 分钟后点击 <code>激活</code></li>
+</ol>
+<p><strong>注：密钥管理无需填写，留空即可</strong></p>
+<p><img data-src="/images/office-365/activate.png" alt="激活"></p>
+<h2 id="四、结束"><a href="#四、结束" class="headerlink" title="四、结束"></a>四、结束</h2><p>等待一会后打开一个 Office 应用，切换到 <code>账户</code> 选项卡，看到 <code>产品已激活</code> 后即为激活成功</p>
+<p><img data-src="/images/office-365/end.png" alt="完成"></p>
+<p>若激活失败可参考 <a href="https://otp.landian.vip/docs/zh-cn/">Office Tool Plus 帮助文档</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Microsoft</tag>
+        <tag>Microsoft Office</tag>
+      </tags>
+  </entry>
 </search>
