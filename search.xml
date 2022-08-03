@@ -20,7 +20,12 @@
   <entry>
     <title>next 主题美化分享</title>
     <url>/2022/08/02/next-theme/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>最近我将博客的 NexT 主题更新至了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
+<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
+</a></p>
+<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
+</a></p>
+]]></content>
       <categories>
         <category>教程</category>
       </categories>
