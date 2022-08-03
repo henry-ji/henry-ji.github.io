@@ -25,6 +25,9 @@
 </a></p>
 <p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
 </a></p>
+<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
+<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
+<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
 ]]></content>
       <categories>
         <category>教程</category>
