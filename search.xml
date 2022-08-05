@@ -52,7 +52,7 @@
 </ol>
 <p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/828813440a1d1c6a.png" alt="部署"></p>
 <h2 id="三、激活-Office"><a href="#三、激活-Office" class="headerlink" title="三、激活 Office"></a>三、激活 Office</h2><ol>
-<li>切换到 <code>激活</code> 选项卡，在 <code>许可证管理</code> 中选择 <code>Office Mondo 2016 - 批量许可证</code>并点击 <code>安装许可证</code></li>
+<li>切换到 <code>激活</code> 选项卡，在 <code>许可证管理</code> 中选择 <code>Office Mondo 2016 - 批量许可证</code> 并点击 <code>安装许可证</code></li>
 <li>在 <code>KMS 主机</code> 中填入 <code>kms.03k.org</code>，端口留空，点击 <code>保存设置</code></li>
 <li>等待 3 分钟后点击 <code>激活</code></li>
 </ol>
