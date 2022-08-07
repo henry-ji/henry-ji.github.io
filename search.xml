@@ -20,7 +20,7 @@
   <entry>
     <title>JetBrains产品全版本激活补丁使用教程</title>
     <url>/2022/08/05/jetbrains/</url>
-    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="https://henry-ji.github.io/html/jetbrains.html">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
+    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="/html/jetbrains/test.html">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
 <p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
 <p>3.打开 JetBrains IDE，届时会提示你激活</p>
 <p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的<strong>*</strong>那里，然后点击复制即可</p>
