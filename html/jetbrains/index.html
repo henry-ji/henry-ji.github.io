@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <br>
-    <center>
+    <div style="text-align: center;">
         <font size="6">JetBrains 许可证</font>
-    </center>
+    </div>
     <br>
 </head>
 <head>
@@ -148,6 +148,10 @@
 
         .items-center {
             align-items: center;
+        }
+
+        .items-left {
+            align-items: flex-start;
         }
 
         .shrink-0 {
@@ -565,7 +569,7 @@
 <body>
 <header class="tip sticky flex items-center py-6">
     <p>
-        下载 <a href="files/jetbra.zip" title="下载 jetbra">jetbra.zip</a> (220801)，解压后运行 <strong>scripts/install-all-users.vbs</strong> (Windows) 或 <strong>scripts/install.sh</strong> (Mac / Linux) <br> 仅供个人使用，切勿用于商业用途！
+        下载我打包好的 <a href="files/jetbra.zip" title="下载 jetbra">jetbra.zip</a> (220801)，解压后运行 <strong>scripts/install-all-users.vbs</strong> (Windows) 或 <strong>scripts/install.sh</strong> (Mac / Linux) <br> 仅供个人使用，切勿用于商业用途！
     </p>
 </header>
 <main class="px-6 z-grid py-10" style="--space: 20rem; --gutter: 3.5rem">
@@ -3531,9 +3535,9 @@
             try {
                 input.select();
                 document.execCommand('copy');
-                el.setAttribute('data-content', 'Copied!');
+                el.setAttribute('data-content', '复制成功!');
             } catch (error) {
-                el.setAttribute('data-content', 'Copy failed!');
+                el.setAttribute('data-content', '复制失败!');
             }
 
             document.body.removeChild(input);
