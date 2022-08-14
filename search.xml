@@ -70,16 +70,16 @@
 <li><code>创建桌面快捷方式</code> 按需勾选即可</li>
 <li>点击开始部署</li>
 </ol>
-<p><img data-src="deploy.png" alt="部署"></p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/828813440a1d1c6a.png" alt="部署"></p>
 <h2 id="三、激活-Office"><a href="#三、激活-Office" class="headerlink" title="三、激活 Office"></a>三、激活 Office</h2><ol>
 <li>切换到 <code>激活</code> 选项卡，在 <code>许可证管理</code> 中选择 <code>Office Mondo 2016 - 批量许可证</code> 并点击 <code>安装许可证</code></li>
 <li>在 <code>KMS 主机</code> 中填入 <code>kms.03k.org</code>，端口留空，点击 <code>保存设置</code></li>
 <li>等待 3 分钟后点击 <code>激活</code></li>
 </ol>
 <p><strong>注：密钥管理无需填写，留空即可</strong></p>
-<p><img data-src="activate.png" alt="激活"></p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/4bb0fd0bedcd9b27.png" alt="激活"></p>
 <h2 id="四、结束"><a href="#四、结束" class="headerlink" title="四、结束"></a>四、结束</h2><p>等待一会后打开一个 Office 应用，切换到 <code>账户</code> 选项卡，看到 <code>产品已激活</code> 后即为激活成功</p>
-<p><img data-src="end.png" alt="完成"></p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/5402862027ac2da7.png" alt="完成"></p>
 <p>若激活失败可参考 <a href="https://otp.landian.vip/docs/zh-cn/">Office Tool Plus 帮助文档</a></p>
 ]]></content>
       <categories>
