@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
+    <url>/2022/08/14/cloudflare-pages/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Cloudflare</tag>
+        <tag>freenom</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/07/24/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -20,7 +34,7 @@
   <entry>
     <title>JetBrains产品全版本激活补丁使用教程</title>
     <url>/2022/08/05/jetbrains/</url>
-    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="/html/jetbrains/index.html">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
+    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
 <p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
 <p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
 <p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
@@ -50,7 +64,7 @@
 <p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
