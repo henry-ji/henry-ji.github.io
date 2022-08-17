@@ -3,7 +3,7 @@ const OriginTitle = document.title;
 let titleTime;
 document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
-    document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+    document.title = '╭(°A°`)╮ 喔唷，页面崩溃啦 ~';
     clearTimeout(titleTime);
   }
   else {
