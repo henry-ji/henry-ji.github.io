@@ -1259,7 +1259,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1c95a4;
+  background: #ff7145;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2837,7 +2837,7 @@ mjx-container + br {
   background-repeat: no-repeat;
   height: 1rem;
   width: 1rem;
-  border-radius: 0;
+  border-radius: 0rem;
 /*鼠标停留在图标上时，图标呈现发光效果*/
 }
 .luogu:hover {
