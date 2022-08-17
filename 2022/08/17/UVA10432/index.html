@@ -23,25 +23,22 @@
     var CONFIG = {"hostname":"www.henry-ji.tk","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"flat","style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一、Office Tool Plus1、简介Office Tool Plus 是一款 Office 小工具，可以帮助您部署 Office 2、下载点击此处以通过官网下载可直接运行的 zip 包">
+  <meta name="description" content="一、题意分析没啥好说的，就是求半径为 $r$ 的圆的内接正 $n$ 边形 二、公式推导 $\because \angle AOB &#x3D; \dfrac{360^{\circ}}{n}$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何永久白嫖 Microsoft Office 365">
-<meta property="og:url" content="https://www.henry-ji.tk/2022/08/01/office-365/index.html">
+<meta property="og:title" content="UVA10432 题解">
+<meta property="og:url" content="https://www.henry-ji.tk/2022/08/17/UVA10432/index.html">
 <meta property="og:site_name" content="Henry_ji 的小站">
-<meta property="og:description" content="一、Office Tool Plus1、简介Office Tool Plus 是一款 Office 小工具，可以帮助您部署 Office 2、下载点击此处以通过官网下载可直接运行的 zip 包">
+<meta property="og:description" content="一、题意分析没啥好说的，就是求半径为 $r$ 的圆的内接正 $n$ 边形 二、公式推导 $\because \angle AOB &#x3D; \dfrac{360^{\circ}}{n}$">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/08/04/828813440a1d1c6a.png">
-<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/08/04/4bb0fd0bedcd9b27.png">
-<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/08/04/5402862027ac2da7.png">
-<meta property="article:published_time" content="2022-08-01T14:54:33.972Z">
-<meta property="article:modified_time" content="2022-08-14T13:27:54.110Z">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/08/17/13c357531ec2fd93.png">
+<meta property="article:published_time" content="2022-08-17T12:18:26.131Z">
+<meta property="article:modified_time" content="2022-08-17T15:00:32.978Z">
 <meta property="article:author" content="Henry_ji">
-<meta property="article:tag" content="Microsoft">
-<meta property="article:tag" content="Microsoft Office">
+<meta property="article:tag" content="洛谷">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/08/04/828813440a1d1c6a.png">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/08/17/13c357531ec2fd93.png">
 
-<link rel="canonical" href="https://www.henry-ji.tk/2022/08/01/office-365/">
+<link rel="canonical" href="https://www.henry-ji.tk/2022/08/17/UVA10432/">
 
 
 <script id="page-configurations">
@@ -54,7 +51,7 @@
   };
 </script>
 
-  <title>如何永久白嫖 Microsoft Office 365 | Henry_ji 的小站</title>
+  <title>UVA10432 题解 | Henry_ji 的小站</title>
   
 
 
@@ -214,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.henry-ji.tk/2022/08/01/office-365/">
+    <link itemprop="mainEntityOfPage" href="https://www.henry-ji.tk/2022/08/17/UVA10432/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blog.svg">
@@ -227,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何永久白嫖 Microsoft Office 365
+          UVA10432 题解
         </h1>
 
         <div class="post-meta">
@@ -236,23 +233,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-08-01 22:54:33" itemprop="dateCreated datePublished" datetime="2022-08-01T22:54:33+08:00">2022-08-01</time>
+              <time title="创建时间：2022-08-17 20:18:26 / 修改时间：23:00:32" itemprop="dateCreated datePublished" datetime="2022-08-17T20:18:26+08:00">2022-08-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-14 21:27:54" itemprop="dateModified" datetime="2022-08-14T21:27:54+08:00">2022-08-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
                 </span>
             </span>
 
@@ -262,7 +253,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>382</span>
+              <span>508</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -281,28 +272,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、Office-Tool-Plus"><a href="#一、Office-Tool-Plus" class="headerlink" title="一、Office Tool Plus"></a>一、Office Tool Plus</h2><h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><p><a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> 是一款 Office 小工具，可以帮助您部署 Office</p>
-<h3 id="2、下载"><a href="#2、下载" class="headerlink" title="2、下载"></a>2、下载</h3><p><a target="_blank" rel="noopener" href="https://otp.landian.vip/redirect/download.php?type=runtime&amp;site=sdumirror">点击此处</a>以通过官网下载可直接运行的 zip 包</p>
-<p>更多下载选项请<a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/download.html">点击此处</a>。</p>
-<h2 id="二、部署-Office"><a href="#二、部署-Office" class="headerlink" title="二、部署 Office"></a>二、部署 Office</h2><ol>
-<li>在 <code>部署</code> 选项卡中添加 <code>Microsoft 365 企业应用版</code> 并按需选择应用程序</li>
-<li><code>通道</code> 可自行选择（不同通道的更新频率不同）</li>
-<li>建议选中 <code>下载后再部署</code>，速度更快</li>
-<li><code>创建桌面快捷方式</code> 按需勾选即可</li>
-<li>点击开始部署</li>
-</ol>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/828813440a1d1c6a.png" alt="部署"></p>
-<h2 id="三、激活-Office"><a href="#三、激活-Office" class="headerlink" title="三、激活 Office"></a>三、激活 Office</h2><ol>
-<li>切换到 <code>激活</code> 选项卡，在 <code>许可证管理</code> 中选择 <code>Office Mondo 2016 - 批量许可证</code> 并点击 <code>安装许可证</code></li>
-<li>在 <code>KMS 主机</code> 中填入 <code>kms.03k.org</code>，端口留空，点击 <code>保存设置</code></li>
-<li>等待 3 分钟后点击 <code>激活</code></li>
-</ol>
-<p><strong>注：密钥管理无需填写，留空即可</strong></p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/4bb0fd0bedcd9b27.png" alt="激活"></p>
-<h2 id="四、结束"><a href="#四、结束" class="headerlink" title="四、结束"></a>四、结束</h2><p>等待一会后打开一个 Office 应用，切换到 <code>账户</code> 选项卡，看到 <code>产品已激活</code> 后即为激活成功</p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/5402862027ac2da7.png" alt="完成"></p>
-<p>若激活失败可参考 <a target="_blank" rel="noopener" href="https://otp.landian.vip/docs/zh-cn/">Office Tool Plus 帮助文档</a></p>
-
+        <h1 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h1><p>没啥好说的，就是求半径为 $r$ 的圆的内接正 $n$ 边形</p>
+<h1 id="二、公式推导"><a href="#二、公式推导" class="headerlink" title="二、公式推导"></a>二、公式推导</h1><p><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/13c357531ec2fd93.png" alt></p>
+<p>$\because \angle AOB = \dfrac{360^{\circ}}{n}$</p>
+<p>$\therefore \sin \angle AOB = \dfrac{j}{r} = \sin \dfrac{360^{\circ}}{n} = \sin \dfrac{2 \pi}{n}$  （计算机中的三角函数以弧度计算）</p>
+<p>$\therefore j = \sin \dfrac{2 \pi}{n} \times r$</p>
+<p>$\therefore S_{\triangle_{ABO}} = \dfrac{1}{2}r \times j = \dfrac{1}{2}r \times (\sin \dfrac{2 \pi}{n} \times r) = \dfrac{1}{2}r^2\sin \dfrac{2 \pi}{n}$</p>
+<p>$\therefore S_{\odot_{O}} = nS_{\triangle_{ABO}} = \dfrac{1}{2}nr^2\sin \dfrac{2 \pi}{n}$</p>
+<h1 id="三、AC-程序"><a href="#三、AC-程序" class="headerlink" title="三、AC 程序"></a>三、AC 程序</h1><p>程序比较简单，就不写注释了</p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r, n = <span class="built_in">input</span>().split(<span class="string">&#x27; &#x27;</span>)[:<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    r, n = <span class="built_in">eval</span>(r), <span class="built_in">eval</span>(n)</span><br><span class="line">    ans = n * (r ** <span class="number">2</span>) * math.sin(<span class="number">2</span> * math.pi / n) / <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;%.3f&#x27;</span>%ans)</span><br></pre></td></tr></table></figure>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><h3 id="必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi"><a href="#必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi" class="headerlink" title="必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 std::number::pi"></a>必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 <code>std::number::pi</code></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> r, n;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> pi=<span class="number">3.14159265358979</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin&gt;&gt;r&gt;&gt;n)&#123;</span><br><span class="line">        <span class="type">double</span> ans = n * r * r * <span class="built_in">sin</span>(<span class="number">2</span> * pi / n) / <span class="number">2.0</span>;</span><br><span class="line">        cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">3</span>)&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -311,8 +290,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Microsoft/" rel="tag"># Microsoft</a>
-              <a href="/tags/Microsoft-Office/" rel="tag"># Microsoft Office</a>
+              <a href="/tags/%E6%B4%9B%E8%B0%B7/" rel="tag"># 洛谷</a>
           </div>
 
         
@@ -321,13 +299,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/07/24/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2022/08/17/freenom-domain/" rel="prev" title="利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务">
+      <i class="fa fa-chevron-left"></i> 利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/08/02/next-theme/" rel="next" title="next 主题美化分享">
-      next 主题美化分享 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -386,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Office-Tool-Plus"><span class="nav-number">1.</span> <span class="nav-text">一、Office Tool Plus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1、简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">2、下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%83%A8%E7%BD%B2-Office"><span class="nav-number">2.</span> <span class="nav-text">二、部署 Office</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%BF%80%E6%B4%BB-Office"><span class="nav-number">3.</span> <span class="nav-text">三、激活 Office</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BB%93%E6%9D%9F"><span class="nav-number">4.</span> <span class="nav-text">四、结束</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A2%98%E6%84%8F%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">一、题意分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC"><span class="nav-number">2.</span> <span class="nav-text">二、公式推导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81AC-%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">三、AC 程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">3.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">3.2.</span> <span class="nav-text">C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%85%E9%A1%BB%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B%EF%BC%8CUVA-%E5%B1%85%E7%84%B6%E4%B8%8D%E6%94%AF%E6%8C%81-C-20%EF%BC%8C%E5%AE%B3%E7%9A%84%E6%88%91%E6%B2%A1%E6%B3%95%E7%94%A8-std-number-pi"><span class="nav-number">3.2.1.</span> <span class="nav-text">必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 std::number::pi</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -554,6 +529,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
