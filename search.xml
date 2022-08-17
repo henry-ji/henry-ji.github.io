@@ -22,6 +22,11 @@
       </tags>
   </entry>
   <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/2022/01/01/domain/</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
+  </entry>
+  <entry>
     <title>利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务</title>
     <url>/2022/08/17/freenom-domain/</url>
     <content><![CDATA[<h1 id="一、关于-freenom"><a href="#一、关于-freenom" class="headerlink" title="一、关于 freenom"></a>一、关于 freenom</h1><p><a href="https://my.freenom.com/clientarea.php">freenom</a> 是一个主营免费域名注册的网站。你可以在这里方便地注册 .ml / .tk 等免费域名</p>
@@ -70,11 +75,6 @@
         <tag>Cloudflare</tag>
         <tag>freenom</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>本站正式迁移到全新域名</title>
-    <url>/2022/01/01/domain/</url>
-    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
