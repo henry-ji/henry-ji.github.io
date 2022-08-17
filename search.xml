@@ -42,10 +42,10 @@
 <p>i. 未开启代理（不推荐）：填写属于<strong>中国</strong>的信息（手机号、地址）</p>
 <p>ii. 开启代理，智能模式：填写属于<strong>中国</strong>的信息（手机号、地址）</p>
 <p>iii. 开启代理，全局模式：填写属于<strong>美国</strong>的信息（手机号、地址）</p>
+</blockquote>
 <ol>
 <li>点击 <code>Complete Orders</code></li>
 </ol>
-</blockquote>
 <h2 id="2）注册域名"><a href="#2）注册域名" class="headerlink" title="2）注册域名"></a>2）注册域名</h2><ol>
 <li>登录刚才激活的账号</li>
 <li><code>Services &gt; Register a New Domain</code></li>
@@ -74,25 +74,6 @@
       <tags>
         <tag>Cloudflare</tag>
         <tag>freenom</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JetBrains产品全版本激活补丁使用教程</title>
-    <url>/2022/08/05/jetbrains/</url>
-    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
-<p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
-<p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
-<p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/aa857692731fb127.png" alt="复制并粘贴密钥"></p>
-<p>5.返回到IDEA IDE工具中，点击激活码，然后将复制的激活码粘贴进去点击激活即可，插件和主题激活同理</p>
-<p>6.激活完成</p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/8815db13d432eea8.png" alt="激活完成"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>JetBrains</tag>
       </tags>
   </entry>
   <entry>
@@ -131,6 +112,25 @@
       <tags>
         <tag>Hexo</tag>
         <tag>nexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JetBrains产品全版本激活补丁使用教程</title>
+    <url>/2022/08/05/jetbrains/</url>
+    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
+<p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
+<p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
+<p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/aa857692731fb127.png" alt="复制并粘贴密钥"></p>
+<p>5.返回到IDEA IDE工具中，点击激活码，然后将复制的激活码粘贴进去点击激活即可，插件和主题激活同理</p>
+<p>6.激活完成</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/8815db13d432eea8.png" alt="激活完成"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>JetBrains</tag>
       </tags>
   </entry>
   <entry>
