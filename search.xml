@@ -3,7 +3,14 @@
   <entry>
     <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
     <url>/2022/08/14/cloudflare-pages/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h1><p><a href="https://www.clouflare.com">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
+<h1 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h1><h2 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h2><p>进入 <a href="https://www.clouflare.com">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
+<h2 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h2><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
+<p>P.S. 关于如何免费注册及激活域名将在下一篇文章中详细讲解</p>
+<h2 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h2><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
+<h2 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h2><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
+<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
+]]></content>
       <categories>
         <category>博客搭建</category>
       </categories>
@@ -20,20 +27,53 @@
     <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/07/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务</title>
+    <url>/2022/08/17/freenom-domain/</url>
+    <content><![CDATA[<h1 id="一、关于-freenom"><a href="#一、关于-freenom" class="headerlink" title="一、关于 freenom"></a>一、关于 freenom</h1><p><a href="https://my.freenom.com/clientarea.php">freenom</a> 是一个主营免费域名注册的网站。你可以在这里方便地注册 .ml / .tk 等免费域名</p>
+<h1 id="二、注册域名"><a href="#二、注册域名" class="headerlink" title="二、注册域名"></a>二、注册域名</h1><p>出于某种奇怪的原因，freenom 隐藏了账号注册入口，所以我们需要先通过以下的方法注册一个账号</p>
+<h2 id="1）注册账号"><a href="#1）注册账号" class="headerlink" title="1）注册账号"></a>1）注册账号</h2><ol>
+<li>进入 <a href="https://my.freenom.com/clientarea.php">freenom 首页</a>，选择 <code>Partners &gt; Developers &gt; Learn more about Random Domains &gt; Get a Random Domains Accout today!</code></li>
+<li>输入你的邮箱并点击 <code>Verify My Email Address</code></li>
+<li>点击邮箱中的链接并填写信息</li>
+</ol>
+<blockquote>
+<p>如果点击链接后未正确跳转，则应按照 二、1） 中的操作重新进入信息填写界面</p>
+<p>此处的个人信息务必按照以下要求填写：</p>
+<p>i. 未开启代理（不推荐）：填写属于<strong>中国</strong>的信息（手机号、地址）</p>
+<p>ii. 开启代理，智能模式：填写属于<strong>中国</strong>的信息（手机号、地址）</p>
+<p>iii. 开启代理，全局模式：填写属于<strong>美国</strong>的信息（手机号、地址）</p>
+<ol>
+<li>点击 <code>Complete Orders</code></li>
+</ol>
+</blockquote>
+<h2 id="2）注册域名"><a href="#2）注册域名" class="headerlink" title="2）注册域名"></a>2）注册域名</h2><ol>
+<li>登录刚才激活的账号</li>
+<li><code>Services &gt; Register a New Domain</code></li>
+<li>输入你想注册的域名（无需包括后缀）并点击 <code>Check Availability</code></li>
+<li>选择你想要的域名，点击 <code>Checkout</code><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/7f07bfc82706a41c.png" alt></li>
+<li>为每个域名选择 12 Months @ FREE（要等一会才能加载出选择框）</li>
+<li><code>Continue &gt; Complete Order</code></li>
+<li>看到这样的页面就说明域名申请成功<img data-src="https://s3.bmp.ovh/imgs/2022/08/17/d49c69848f90585b.png" alt><blockquote>
+<p>这里如果提示 <code>出现技术错误</code> 则说明个人信息填写错误，请仔细查看 <code>注册账号</code> 中的注释</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="三、利用-Cloudflare-配置-DNS-服务"><a href="#三、利用-Cloudflare-配置-DNS-服务" class="headerlink" title="三、利用 Cloudflare 配置 DNS 服务"></a>三、利用 Cloudflare 配置 DNS 服务</h1><ol>
+<li>进入 <a href="https://www.clouflare.com">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示完成注册</li>
+<li>进入 <code>Cloudflare 控制台</code> 后，点击 <code>网站 &gt; 添加站点</code>，填写刚才注册好的域名，选择 <code>Free</code> 计划</li>
+<li>点击侧栏中的 <code>DNS</code>，复制下图中所展示的两个地址<img data-src="https://s3.bmp.ovh/imgs/2022/08/17/de9988c18a55424d.png" alt></li>
+<li>回到 <code>freenom &gt; Services &gt; My Domains</code>‘</li>
+<li>点击域名后面的 <code>Manage Domain &gt; Management Tools &gt; Nameservers &gt; Use custom nameservers (enter below)</code></li>
+<li>在 <code>Nameserver 1</code> 和 <code>Nameserver 2</code> 中填写刚才复制的两个地址，点击 <code>Change Nameserver</code></li>
+<li>等待 Cloudflare 检查名称服务器，检查完成后即激活成功，可在 DNS 页面中继续配置 DNS</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
       <tags>
-        <tag>test</tag>
+        <tag>Cloudflare</tag>
+        <tag>freenom</tag>
       </tags>
   </entry>
   <entry>
@@ -53,6 +93,23 @@
       </categories>
       <tags>
         <tag>JetBrains</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/07/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
