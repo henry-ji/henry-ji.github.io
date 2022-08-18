@@ -88,17 +88,17 @@
       </tags>
   </entry>
   <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/2022/01/01/domain/</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
+  </entry>
+  <entry>
     <title>洛谷百粉福利——抄粉丝名</title>
     <url>/2022/08/18/fan-names/</url>
     <content><![CDATA[<center><h2>还没抄完呢，等着</h2></center>]]></content>
       <tags>
         <tag>洛谷</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>本站正式迁移到全新域名</title>
-    <url>/2022/01/01/domain/</url>
-    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
     <title>利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务</title>
@@ -168,6 +168,46 @@
       </tags>
   </entry>
   <entry>
+    <title>JetBrains产品全版本激活补丁使用教程</title>
+    <url>/2022/08/05/jetbrains/</url>
+    <content><![CDATA[<h2 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h2><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
+<p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
+<p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
+<p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/aa857692731fb127.png" alt="复制并粘贴密钥"></p>
+<p>5.返回到IDEA IDE工具中，点击激活码，然后将复制的激活码粘贴进去点击激活即可，插件和主题激活同理</p>
+<p>6.激活完成</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/8815db13d432eea8.png" alt="激活完成"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>JetBrains</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next 主题美化分享</title>
+    <url>/2022/08/02/next-theme/</url>
+    <content><![CDATA[<p>最近我将博客的 NexT 主题更新到了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
+<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
+</a></p>
+<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
+</a></p>
+<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
+<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
+<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
+<p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>nexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何永久白嫖 Microsoft Office 365</title>
     <url>/2022/08/01/office-365/</url>
     <content><![CDATA[<h2 id="一、Office-Tool-Plus"><a href="#一、Office-Tool-Plus" class="headerlink" title="一、Office Tool Plus"></a>一、Office Tool Plus</h2><h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><p><a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> 是一款 Office 小工具，可以帮助您部署 Office</p>
@@ -198,46 +238,6 @@
       <tags>
         <tag>Microsoft</tag>
         <tag>Microsoft Office</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next 主题美化分享</title>
-    <url>/2022/08/02/next-theme/</url>
-    <content><![CDATA[<p>最近我将博客的 NexT 主题更新到了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
-<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
-</a></p>
-<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
-</a></p>
-<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
-<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
-<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
-<p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>nexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JetBrains产品全版本激活补丁使用教程</title>
-    <url>/2022/08/05/jetbrains/</url>
-    <content><![CDATA[<h2 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h2><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
-<p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
-<p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
-<p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/aa857692731fb127.png" alt="复制并粘贴密钥"></p>
-<p>5.返回到IDEA IDE工具中，点击激活码，然后将复制的激活码粘贴进去点击激活即可，插件和主题激活同理</p>
-<p>6.激活完成</p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/8815db13d432eea8.png" alt="激活完成"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>JetBrains</tag>
       </tags>
   </entry>
 </search>
