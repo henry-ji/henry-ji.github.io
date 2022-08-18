@@ -21,6 +21,11 @@
       </tags>
   </entry>
   <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/2022/01/01/domain/</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
+  </entry>
+  <entry>
     <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
     <url>/2022/08/14/cloudflare-pages/</url>
     <content><![CDATA[<h1 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h1><p><a href="https://www.clouflare.com">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
@@ -40,11 +45,6 @@
         <tag>Cloudflare</tag>
         <tag>freenom</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>本站正式迁移到全新域名</title>
-    <url>/2022/01/01/domain/</url>
-    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
     <title>利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务</title>
@@ -114,6 +114,25 @@
       </tags>
   </entry>
   <entry>
+    <title>JetBrains产品全版本激活补丁使用教程</title>
+    <url>/2022/08/05/jetbrains/</url>
+    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
+<p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
+<p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
+<p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/aa857692731fb127.png" alt="复制并粘贴密钥"></p>
+<p>5.返回到IDEA IDE工具中，点击激活码，然后将复制的激活码粘贴进去点击激活即可，插件和主题激活同理</p>
+<p>6.激活完成</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/8815db13d432eea8.png" alt="激活完成"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>JetBrains</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UVA10503 题解</title>
     <url>/2022/08/18/UVA10503/</url>
     <content><![CDATA[<h1 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h1><p>总结题中的骨牌特性：两点、双向，你会想到什么？</p>
@@ -160,22 +179,24 @@
       </tags>
   </entry>
   <entry>
-    <title>JetBrains产品全版本激活补丁使用教程</title>
-    <url>/2022/08/05/jetbrains/</url>
-    <content><![CDATA[<h1 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h1><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
-<p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
-<p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
-<p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/aa857692731fb127.png" alt="复制并粘贴密钥"></p>
-<p>5.返回到IDEA IDE工具中，点击激活码，然后将复制的激活码粘贴进去点击激活即可，插件和主题激活同理</p>
-<p>6.激活完成</p>
-<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/8815db13d432eea8.png" alt="激活完成"></p>
+    <title>next 主题美化分享</title>
+    <url>/2022/08/02/next-theme/</url>
+    <content><![CDATA[<p>最近我将博客的 NexT 主题更新到了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
+<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
+</a></p>
+<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
+</a></p>
+<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
+<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
+<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
+<p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>JetBrains</tag>
+        <tag>Hexo</tag>
+        <tag>nexT</tag>
       </tags>
   </entry>
   <entry>
@@ -209,27 +230,6 @@
       <tags>
         <tag>Microsoft</tag>
         <tag>Microsoft Office</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next 主题美化分享</title>
-    <url>/2022/08/02/next-theme/</url>
-    <content><![CDATA[<p>最近我将博客的 NexT 主题更新到了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
-<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
-</a></p>
-<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
-</a></p>
-<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
-<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
-<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
-<p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>nexT</tag>
       </tags>
   </entry>
 </search>
