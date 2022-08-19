@@ -67,6 +67,11 @@
       </tags>
   </entry>
   <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/2022/01/01/domain/</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
+  </entry>
+  <entry>
     <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
     <url>/2022/08/14/cloudflare-pages/</url>
     <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.clouflare.com">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
@@ -86,11 +91,6 @@
         <tag>Cloudflare</tag>
         <tag>freenom</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>本站正式迁移到全新域名</title>
-    <url>/2022/01/01/domain/</url>
-    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
     <title>洛谷百粉福利——抄粉丝名</title>
