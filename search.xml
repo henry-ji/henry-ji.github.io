@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CF292A 题解</title>
+    <url>/2022/08/19/CF292A/</url>
+    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>简单阅读一边题目，看一眼数据范围，发现 $n \le 1000$。显然，最多 $1000$ 条申请直接模拟即可。</p>
+<h2 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h2><p>没什么好说的，忠实地模拟每一条申请即可。</p>
+<blockquote>
+<p>一定要注意操作的逻辑、时间顺序以及最大值的记录时间</p>
+</blockquote>
+<h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">cnt = <span class="number">0</span>  <span class="comment"># 消息队列中的消息个数</span></span><br><span class="line">lt = <span class="number">0</span>  <span class="comment"># 上一条申请的时间</span></span><br><span class="line">mn = <span class="number">0</span>  <span class="comment"># 队列最长的长度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    t, c = <span class="built_in">input</span>().split()</span><br><span class="line">    t, c = <span class="built_in">int</span>(t), <span class="built_in">int</span>(c)</span><br><span class="line">    cnt -= t - lt  <span class="comment"># 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">    lt = t  <span class="comment"># 记录本次申请的时间</span></span><br><span class="line">    <span class="keyword">if</span> cnt &lt; <span class="number">0</span>:  <span class="comment"># 如果减过头就再加回来</span></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">    cnt += c  <span class="comment"># 加上本次申请加入的消息</span></span><br><span class="line">    <span class="keyword">if</span> cnt &gt; mn:  <span class="comment"># 如果有更大的 n 就记录下来</span></span><br><span class="line">        mn = cnt</span><br><span class="line"><span class="built_in">print</span>(cnt + t, mn)  <span class="comment"># 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, cnt, lt, mn, t, c;  <span class="comment">// 与 Python 代码中的变量含义相同，不再赘述</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; t &gt;&gt; c;</span><br><span class="line">        cnt -= t - lt;  <span class="comment">// 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">        lt = t;  <span class="comment">// 记录本次申请的时间</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &lt; <span class="number">0</span>) cnt = <span class="number">0</span>;  <span class="comment">// 如果减过头就再加回来</span></span><br><span class="line">        cnt += c;  <span class="comment">// 加上本次申请加入的消息</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &gt; mn) mn = cnt;  <span class="comment">// 如果有更大的 n 就记录下来</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt + t &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; mn;  <span class="comment">// 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UVA10432 题解</title>
     <url>/2022/08/17/UVA10432/</url>
     <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>没啥好说的，就是求半径为 $r$ 的圆的内接正 $n$ 边形</p>
@@ -67,11 +84,6 @@
       </tags>
   </entry>
   <entry>
-    <title>本站正式迁移到全新域名</title>
-    <url>/2022/01/01/domain/</url>
-    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
-  </entry>
-  <entry>
     <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
     <url>/2022/08/14/cloudflare-pages/</url>
     <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.clouflare.com">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
@@ -91,6 +103,11 @@
         <tag>Cloudflare</tag>
         <tag>freenom</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/2022/01/01/domain/</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
     <title>洛谷百粉福利——抄粉丝名</title>
