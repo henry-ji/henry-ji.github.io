@@ -38,6 +38,32 @@
       </tags>
   </entry>
   <entry>
+    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
+    <url>/2022/08/14/cloudflare-pages/</url>
+    <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
+<h2 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h2><h3 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h3><p>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
+<h3 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h3><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
+<p>P.S. 关于如何免费注册及激活域名将在下一篇文章中详细讲解</p>
+<h3 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h3><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
+<h3 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h3><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
+<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Cloudflare</tag>
+        <tag>freenom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/2022/01/01/domain/</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
+  </entry>
+  <entry>
     <title>UVA10503 题解</title>
     <url>/2022/08/18/UVA10503/</url>
     <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>总结题中的骨牌特性：两点、双向，你会想到什么？</p>
@@ -84,30 +110,12 @@
       </tags>
   </entry>
   <entry>
-    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
-    <url>/2022/08/14/cloudflare-pages/</url>
-    <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.clouflare.com">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
-<h2 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h2><h3 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h3><p>进入 <a href="https://www.clouflare.com">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
-<h3 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h3><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
-<p>P.S. 关于如何免费注册及激活域名将在下一篇文章中详细讲解</p>
-<h3 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h3><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
-<h3 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h3><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
-<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
+    <title>洛谷百粉福利——抄粉丝名</title>
+    <url>/2022/08/18/fan-names/</url>
+    <content><![CDATA[<center><h2>还没抄完呢，等着</h2></center>]]></content>
       <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
-        <tag>Cloudflare</tag>
-        <tag>freenom</tag>
+        <tag>洛谷</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>本站正式迁移到全新域名</title>
-    <url>/2022/01/01/domain/</url>
-    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
     <title>利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务</title>
@@ -142,7 +150,7 @@
 </li>
 </ol>
 <h2 id="三、利用-Cloudflare-配置-DNS-服务"><a href="#三、利用-Cloudflare-配置-DNS-服务" class="headerlink" title="三、利用 Cloudflare 配置 DNS 服务"></a>三、利用 Cloudflare 配置 DNS 服务</h2><ol>
-<li>进入 <a href="https://www.clouflare.com">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示完成注册</li>
+<li>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示完成注册</li>
 <li>进入 <code>Cloudflare 控制台</code> 后，点击 <code>网站 &gt; 添加站点</code>，填写刚才注册好的域名，选择 <code>Free</code> 计划</li>
 <li>点击侧栏中的 <code>DNS</code>，复制下图中所展示的两个地址<img data-src="https://s3.bmp.ovh/imgs/2022/08/17/de9988c18a55424d.png" alt></li>
 <li>回到 <code>freenom &gt; Services &gt; My Domains</code>‘</li>
@@ -157,14 +165,6 @@
       <tags>
         <tag>Cloudflare</tag>
         <tag>freenom</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>洛谷百粉福利——抄粉丝名</title>
-    <url>/2022/08/18/fan-names/</url>
-    <content><![CDATA[<center><h2>还没抄完呢，等着</h2></center>]]></content>
-      <tags>
-        <tag>洛谷</tag>
       </tags>
   </entry>
   <entry>
@@ -204,27 +204,6 @@
       </tags>
   </entry>
   <entry>
-    <title>next 主题美化分享</title>
-    <url>/2022/08/02/next-theme/</url>
-    <content><![CDATA[<p>最近我将博客的 NexT 主题更新到了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
-<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
-</a></p>
-<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
-</a></p>
-<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
-<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
-<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
-<p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>nexT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何永久白嫖 Microsoft Office 365</title>
     <url>/2022/08/01/office-365/</url>
     <content><![CDATA[<h2 id="一、Office-Tool-Plus"><a href="#一、Office-Tool-Plus" class="headerlink" title="一、Office Tool Plus"></a>一、Office Tool Plus</h2><h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><p><a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> 是一款 Office 小工具，可以帮助您部署 Office</p>
@@ -255,6 +234,27 @@
       <tags>
         <tag>Microsoft</tag>
         <tag>Microsoft Office</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next 主题美化分享</title>
+    <url>/2022/08/02/next-theme/</url>
+    <content><![CDATA[<p>最近我将博客的 NexT 主题更新到了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
+<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
+</a></p>
+<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
+</a></p>
+<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
+<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
+<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
+<p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>nexT</tag>
       </tags>
   </entry>
 </search>
