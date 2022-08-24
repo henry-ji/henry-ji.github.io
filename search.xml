@@ -84,11 +84,6 @@
       </tags>
   </entry>
   <entry>
-    <title>本站正式迁移到全新域名</title>
-    <url>/2022/01/01/domain/</url>
-    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
-  </entry>
-  <entry>
     <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
     <url>/2022/08/14/cloudflare-pages/</url>
     <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
@@ -110,21 +105,46 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/07/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>UVA11269 题解</title>
+    <url>/2022/08/24/UVA11269/</url>
+    <content><![CDATA[<h2 id="一、题目翻译"><a href="#一、题目翻译" class="headerlink" title="一、题目翻译"></a>一、题目翻译</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>$ Sultan $ 和 $ GolaphiBaba $ 两个人想一起出一个比赛。$ Sultan $ 负责出题而 $ GolaphiBaba $ 负责数据。请你求出他们出完这场比赛所需要的最短时间。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入会有多组数据，每组数据包含 $3$ 行：</p>
+<ul>
+<li>第一行包含一个正整数 $N$，代表这场比赛有 $N$ 道题</li>
+<li>第二行包含 $N$ 个正整数 $S_i$，表示 $ Sultan $ 出第 $i$ 道题所需的时间</li>
+<li>第三行包含 $N$ 个正整数 $G_i$，表示 $ GolaphiBaba $ 为第 $i$ 道题配数据所需的时间</li>
+</ul>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每组数据，输出一行，表示 $ Sultan $ 和 $ GolaphiBaba $ 出完这场比赛所需要的最短时间。</p>
+<h2 id="二、题目分析"><a href="#二、题目分析" class="headerlink" title="二、题目分析"></a>二、题目分析</h2><p>对于一个最优解问题，显然贪心算法是我们最先想到的方法。</p>
+<p>那么首先，我们来复习一下什么是贪心算法：</p>
+<blockquote>
+<p>贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。</p>
+<p></p><p align="right">—— OI Wiki</p>
+</blockquote>
+<p><img data-src="https://cdn.jsdelivr.net/gh/henry-ji/tu@main/20220824180430.png" align="right" width="400">接着，我们再来看一眼题目，要想用贪心算法解决问题，我们就需要知道每个子问题的解决方法。如果之于本题，就是探究任意两道题应当如何排序。简单分析可以得到以下结论：</p>
+<ul>
+<li>对于任意两道题（$a$ &amp; $b$），既可以先做 $a$ 也可以先做 $b$</li>
+<li>如果先做 $a$，则用时应为 <code>A.s + max(A.g, B.s) + B.g</code></li>
+<li>如果先做 $b$，则用时应为 <code>B.s + max(B.g, A.s) + A.g</code></li>
+</ul>
+<p>知道了以上几点，程序自然也就不难了。</p>
+<h2 id="三、AC-Code"><a href="#三、AC-Code" class="headerlink" title="三、AC Code"></a>三、AC Code</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><blockquote>
+<p>码风较差，将就着看吧</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">problem</span> &#123;</span><br><span class="line">    <span class="type">int</span> s, g;</span><br><span class="line">&#125; pList[<span class="number">1000000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(problem a, problem b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.s + <span class="built_in">max</span>(a.g, b.s) + b.g &lt; b.s + <span class="built_in">max</span>(b.g, a.s) + a.g;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].g;</span><br><span class="line">        <span class="built_in">sort</span>(pList, pList + n, cmp);</span><br><span class="line">        <span class="type">int</span> S = <span class="number">0</span>, G = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            S += pList[i].s;</span><br><span class="line">            <span class="keyword">if</span> (G &lt; S) G = S;</span><br><span class="line">            G += pList[i].g;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; G &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>懒得写排序，先咕着</p>
 ]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
       <tags>
-        <tag>test</tag>
+        <tag>洛谷</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/2022/01/01/domain/</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
   </entry>
   <entry>
     <title>洛谷百粉福利——抄粉丝名</title>
@@ -192,6 +212,23 @@
       <tags>
         <tag>Cloudflare</tag>
         <tag>freenom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/07/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
