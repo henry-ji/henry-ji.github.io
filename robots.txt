@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /about/
+Disallow: /vendors/
+Disallow: /css/
+Disallow: /fancybox/
+Sitemap: https://www.henry-ji.tk/sitemap.xml

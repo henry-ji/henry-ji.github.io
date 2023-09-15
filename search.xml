@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>SP26179 题解</title>
+    <url>/SP26179.html</url>
+    <content><![CDATA[<h2 id="一、题目解释"><a href="#一、题目解释" class="headerlink" title="一、题目解释"></a>一、题目解释</h2><p>本题就是给定大炮和目标的位置以及炮弹速度、风速和风向，求出打中目标的时间。</p>
+<h2 id="二、题意分析"><a href="#二、题意分析" class="headerlink" title="二、题意分析"></a>二、题意分析</h2><ul>
+<li><p>由于需要考虑方向，我们不妨将右侧设为正，左侧设为负，即加上</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (ct &lt; cp) cbs *= <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">if</span> (wd == <span class="string">&#x27;L&#x27;</span>) ws *= <span class="number">-1</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此时我们就可以将炮弹速度和风速加在一起，作为实际速度进行计算，即</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">t = (ct - cp) / (cbs + ws)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>特判</p>
+<ul>
+<li><p>如果大炮和目标在同一点上，那么时间就是 0 <del>都把自己炸死了还管什么时间</del>，所以</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (ct - cp == <span class="number">0</span>) cout &lt;&lt; <span class="string">&quot;0.000000&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>按照上面的步骤进行计算时，我们会发现若炮弹速度加风速等于零，则计算时会出现除以零，所以<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (cbs + ws == <span class="number">0</span>) cout &lt;&lt; <span class="string">&quot;Impossible&quot;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>最后，我们加上保留小数输出即可（时间为负即不可能）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (t &gt;= <span class="number">0</span>) cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; t;</span><br><span class="line"><span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;Impossible&quot;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="三、AC-Code"><a href="#三、AC-Code" class="headerlink" title="三、AC Code"></a>三、AC Code</h2><p>在上面的分析过后，我们已经理清了思路，接下来代码就不难了。</p>
+<p>最后放上 AC 代码（注释就不写了，上面的说明挺详细的了）：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> cp, ct, cbs, ws;</span><br><span class="line">    <span class="type">char</span> wd;</span><br><span class="line">    cin &gt;&gt; cp &gt;&gt; ct &gt;&gt; cbs &gt;&gt; ws &gt;&gt; wd;</span><br><span class="line">    <span class="keyword">if</span> (ct &lt; cp) cbs *= <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (wd == <span class="string">&#x27;L&#x27;</span>) ws *= <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (ct - cp == <span class="number">0</span>) cout &lt;&lt; <span class="string">&quot;0.000000&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cbs + ws == <span class="number">0</span>) cout &lt;&lt; <span class="string">&quot;Impossible&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">double</span> t = (ct - cp) / (cbs + ws);</span><br><span class="line">        <span class="keyword">if</span> (t &gt;= <span class="number">0</span>) cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; t;</span><br><span class="line">        <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;Impossible&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CF292A 题解</title>
+    <url>/CF292A.html</url>
+    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>简单阅读一边题目，看一眼数据范围，发现 $n \le 1000$。显然，最多 $1000$ 条申请直接模拟即可。</p>
+<h2 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h2><p>没什么好说的，忠实地模拟每一条申请即可。</p>
+<blockquote>
+<p>一定要注意操作的逻辑、时间顺序以及最大值的记录时间</p>
+</blockquote>
+<h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">cnt = <span class="number">0</span>  <span class="comment"># 消息队列中的消息个数</span></span><br><span class="line">lt = <span class="number">0</span>  <span class="comment"># 上一条申请的时间</span></span><br><span class="line">mn = <span class="number">0</span>  <span class="comment"># 队列最长的长度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    t, c = <span class="built_in">input</span>().split()</span><br><span class="line">    t, c = <span class="built_in">int</span>(t), <span class="built_in">int</span>(c)</span><br><span class="line">    cnt -= t - lt  <span class="comment"># 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">    lt = t  <span class="comment"># 记录本次申请的时间</span></span><br><span class="line">    <span class="keyword">if</span> cnt &lt; <span class="number">0</span>:  <span class="comment"># 如果减过头就再加回来</span></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">    cnt += c  <span class="comment"># 加上本次申请加入的消息</span></span><br><span class="line">    <span class="keyword">if</span> cnt &gt; mn:  <span class="comment"># 如果有更大的 n 就记录下来</span></span><br><span class="line">        mn = cnt</span><br><span class="line"><span class="built_in">print</span>(cnt + t, mn)  <span class="comment"># 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, cnt, lt, mn, t, c;  <span class="comment">// 与 Python 代码中的变量含义相同，不再赘述</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; t &gt;&gt; c;</span><br><span class="line">        cnt -= t - lt;  <span class="comment">// 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">        lt = t;  <span class="comment">// 记录本次申请的时间</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &lt; <span class="number">0</span>) cnt = <span class="number">0</span>;  <span class="comment">// 如果减过头就再加回来</span></span><br><span class="line">        cnt += c;  <span class="comment">// 加上本次申请加入的消息</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &gt; mn) mn = cnt;  <span class="comment">// 如果有更大的 n 就记录下来</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt + t &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; mn;  <span class="comment">// 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UVA10503 题解</title>
+    <url>/UVA10503.html</url>
+    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>总结题中的骨牌特性：两点、双向，你会想到什么？</p>
+<details>
+    <summary>请思考 3 秒钟</summary>
+    <p>没错，答案就是<font color="red">无向图</font></p>
+</details>
+
+<p>我们以一组输入为例：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">13</span><br><span class="line">1 0</span><br><span class="line">6 4</span><br><span class="line">0 4</span><br><span class="line">0 4</span><br><span class="line">0 3</span><br><span class="line">5 1</span><br><span class="line">6 0</span><br><span class="line">0 3</span><br><span class="line">1 6</span><br><span class="line">2 4</span><br><span class="line">6 6</span><br><span class="line">6 0</span><br><span class="line">1 6</span><br><span class="line">3 5</span><br><span class="line">4 3</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/18/292a84b497b41339.png" align="right" style=" width:200px"></p>
+<p>由以上的数据我们可以做出一个无向图（见右图）</p>
+<p>图中的红色箭头分别为开始和结束的骨牌（$(1, 0)、(6, 4)$）</p>
+<p>所以，题目就转化为能否找到一条从 $0$ 到 $6$ 的长度为 $10$ 的路线</p>
+<h2 id="二、思路总结"><a href="#二、思路总结" class="headerlink" title="二、思路总结"></a>二、思路总结</h2><p>显然，对于本题来说，深度优先搜索是最好的选择。那么，什么是深度优先搜索？</p>
+<blockquote>
+<p>深度优先搜索 (DFS) 全称是 Depth First Search，是一种用于遍历或搜索树或图的算法。所谓深度优先，就是说每次都尝试向更深的节点走。</p>
+<p align="right">—— OI Wiki</p>
+
+</blockquote>
+<p>要想正确地用递归写出一段 DFS 的代码，我们需要知道以下信息：</p>
+<ul>
+<li>每次递归需要做什么？</li>
+<li>递归的结束条件是什么？</li>
+<li>DFS 的回溯条件是什么？</li>
+</ul>
+<details>
+  <summary>请仔细思考一下，思考完成后点击左边的箭头展开答案</summary>
+  <p> > 每次递归获取一个编号并寻找包含这个编号的骨牌，再以该骨牌的另一个编号进行下一次递归<br> > 距离达标且当前编号等于结束编号<br> > 距离达标但当前编号不等于结束编号</p>
+
+</details>
+
+<h2 id="三、AC-代码"><a href="#三、AC-代码" class="headerlink" title="三、AC 代码"></a>三、AC 代码</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><blockquote>
+<p>C++ 的码风略差，将就着看看吧</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">card</span> &#123;  <span class="comment">// 骨牌类</span></span><br><span class="line">    <span class="type">int</span> lst, nxt;  <span class="comment">// 此处的 lst，nxt 不代表前后关系，仅表示两者互为正反面关系（除了开头和结尾的两个骨牌）</span></span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">false</span>;  <span class="comment">// 记录这张骨牌是否使用过</span></span><br><span class="line">&#125; start, ed, cur_card, cardList[<span class="number">1000000</span>];  <span class="comment">// 记录所有中间骨牌</span></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">bool</span> solved;  <span class="comment">// 全局记录是否有解</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">find_next</span><span class="params">(<span class="type">int</span> card, <span class="type">int</span> distance)</span> </span>&#123;  <span class="comment">// dfs</span></span><br><span class="line">    <span class="keyword">if</span> (distance == n <span class="keyword">and</span> card == ed.lst) &#123;  <span class="comment">// 符合条件：距离达标且与末尾骨牌连接</span></span><br><span class="line">        solved = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (distance &gt;= n) <span class="keyword">return</span>;  <span class="comment">// 距离已到但未匹配成功</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> c = <span class="number">0</span>; c &lt; m; c++) &#123;</span><br><span class="line">        cur_card = cardList[c];</span><br><span class="line">        <span class="keyword">if</span> (cur_card.lst == card <span class="keyword">and</span> !cur_card.flag) &#123;  <span class="comment">// 前后分别遍历</span></span><br><span class="line">            cardList[c].flag = <span class="literal">true</span>;  <span class="comment">// 标记该骨牌以使用过</span></span><br><span class="line">            <span class="built_in">find_next</span>(cur_card.nxt, distance + <span class="number">1</span>);  <span class="comment">// dfs 搜索，每次深度 +1</span></span><br><span class="line">            cardList[c].flag = <span class="literal">false</span>;  <span class="comment">// dfs 回溯，标记改为未使用状态</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cur_card.nxt == card <span class="keyword">and</span> !cur_card.flag) &#123;</span><br><span class="line">            cardList[c].flag = <span class="literal">true</span>;</span><br><span class="line">            <span class="built_in">find_next</span>(cur_card.lst, distance + <span class="number">1</span>);</span><br><span class="line">            cardList[c].flag = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        cin &gt;&gt; m;</span><br><span class="line">        cin &gt;&gt; start.lst &gt;&gt; start.nxt;</span><br><span class="line">        cin &gt;&gt; ed.lst &gt;&gt; ed.nxt;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) cin &gt;&gt; cardList[i].lst &gt;&gt; cardList[i].nxt;</span><br><span class="line">        solved = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">find_next</span>(start.nxt, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (solved) cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CLS_card</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lst, nxt</span>):  <span class="comment"># 骨牌类</span></span><br><span class="line">        self.lst = lst</span><br><span class="line">        self.nxt = nxt  <span class="comment"># 此处的 lst，nxt 不代表前后关系，仅表示两者互为正反面关系（除了开头和结尾的两个骨牌）</span></span><br><span class="line">        self.flag = <span class="literal">False</span>  <span class="comment"># 记录这张骨牌是否使用过</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_next</span>(<span class="params">card, distance</span>):  <span class="comment"># dfs</span></span><br><span class="line">    <span class="keyword">global</span> solved</span><br><span class="line">    <span class="keyword">if</span> distance == n <span class="keyword">and</span> card == end.lst:  <span class="comment"># 符合条件：距离达标且与末尾骨牌连接</span></span><br><span class="line">        solved = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> distance &gt;= n:  <span class="comment"># 距离已到但未匹配成功</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> cardList:</span><br><span class="line">        <span class="keyword">if</span> c.lst == card <span class="keyword">and</span> c.flag == <span class="literal">False</span>:  <span class="comment"># 前后分别遍历</span></span><br><span class="line">            c.flag = <span class="literal">True</span>  <span class="comment"># 标记该骨牌以使用过</span></span><br><span class="line">            find_next(c.nxt, distance + <span class="number">1</span>)  <span class="comment"># dfs 搜索，每次深度 +1</span></span><br><span class="line">            c.flag = <span class="literal">False</span>  <span class="comment"># dfs 回溯，标记改为未使用状态</span></span><br><span class="line">        <span class="keyword">elif</span> c.nxt == card <span class="keyword">and</span> c.flag == <span class="literal">False</span>:</span><br><span class="line">            c.flag = <span class="literal">True</span></span><br><span class="line">            find_next(c.lst, distance + <span class="number">1</span>)</span><br><span class="line">            c.flag = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    m = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    inp = <span class="built_in">input</span>().split()</span><br><span class="line">    start = CLS_card(<span class="built_in">int</span>(inp[<span class="number">0</span>]), <span class="built_in">int</span>(inp[<span class="number">1</span>]))</span><br><span class="line">    inp = <span class="built_in">input</span>().split()</span><br><span class="line">    end = CLS_card(<span class="built_in">int</span>(inp[<span class="number">0</span>]), <span class="built_in">int</span>(inp[<span class="number">1</span>]))</span><br><span class="line">    cardList = []  <span class="comment"># 记录所有中间骨牌</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        inp = <span class="built_in">input</span>().split()</span><br><span class="line">        cardList.append(CLS_card(<span class="built_in">int</span>(inp[<span class="number">0</span>]), <span class="built_in">int</span>(inp[<span class="number">1</span>])))</span><br><span class="line">    solved = <span class="literal">False</span>  <span class="comment"># 全局记录是否有解</span></span><br><span class="line">    find_next(start.nxt, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">if</span> solved:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;YES&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;NO&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UVA11269 题解</title>
+    <url>/UVA11269.html</url>
+    <content><![CDATA[<h2 id="一、题目翻译"><a href="#一、题目翻译" class="headerlink" title="一、题目翻译"></a>一、题目翻译</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>$ Sultan $ 和 $ GolaphiBaba $ 两个人想一起出一个比赛。$ Sultan $ 负责出题而 $ GolaphiBaba $ 负责数据。请你求出他们出完这场比赛所需要的最短时间。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入会有多组数据，每组数据包含 $3$ 行：</p>
+<ul>
+<li>第一行包含一个正整数 $N$，代表这场比赛有 $N$ 道题</li>
+<li>第二行包含 $N$ 个正整数 $S_i$，表示 $ Sultan $ 出第 $i$ 道题所需的时间</li>
+<li>第三行包含 $N$ 个正整数 $G_i$，表示 $ GolaphiBaba $ 为第 $i$ 道题配数据所需的时间</li>
+</ul>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每组数据，输出一行，表示 $ Sultan $ 和 $ GolaphiBaba $ 出完这场比赛所需要的最短时间。</p>
+<h2 id="二、题目分析"><a href="#二、题目分析" class="headerlink" title="二、题目分析"></a>二、题目分析</h2><p>对于一个最优解问题，显然贪心算法是我们最先想到的方法。</p>
+<p>那么首先，我们来复习一下什么是贪心算法：</p>
+<blockquote>
+<p>贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。</p>
+<p></p><p align="right">—— OI Wiki</p>
+</blockquote>
+<p><img data-src="https://cdn.jsdelivr.net/gh/henry-ji/tu@main/20220824180430.png" align="right" width="400">接着，我们再来看一眼题目，要想用贪心算法解决问题，我们就需要知道每个子问题的解决方法。如果之于本题，就是探究任意两道题应当如何排序。简单分析可以得到以下结论：</p>
+<ul>
+<li>对于任意两道题（$a$ &amp; $b$），既可以先做 $a$ 也可以先做 $b$</li>
+<li>如果先做 $a$，则用时应为 <code>A.s + max(A.g, B.s) + B.g</code></li>
+<li>如果先做 $b$，则用时应为 <code>B.s + max(B.g, A.s) + A.g</code></li>
+</ul>
+<p>知道了以上几点，程序自然也就不难了。</p>
+<h2 id="三、AC-Code"><a href="#三、AC-Code" class="headerlink" title="三、AC Code"></a>三、AC Code</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><blockquote>
+<p>码风较差，将就着看吧</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">problem</span> &#123;</span><br><span class="line">    <span class="type">int</span> s, g;</span><br><span class="line">&#125; pList[<span class="number">1000000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(problem a, problem b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.s + <span class="built_in">max</span>(a.g, b.s) + b.g &lt; b.s + <span class="built_in">max</span>(b.g, a.s) + a.g;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].g;</span><br><span class="line">        <span class="built_in">sort</span>(pList, pList + n, cmp);</span><br><span class="line">        <span class="type">int</span> S = <span class="number">0</span>, G = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            S += pList[i].s;</span><br><span class="line">            <span class="keyword">if</span> (G &lt; S) G = S;</span><br><span class="line">            G += pList[i].g;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; G &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>懒得写排序，先咕着</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UVA11945 题解</title>
+    <url>/UVA11945.html</url>
+    <content><![CDATA[<h2 id="一、题目大意"><a href="#一、题目大意" class="headerlink" title="一、题目大意"></a>一、题目大意</h2><p>输入 $n$ 组数据，每组包含 $12$ 个数，求出这 $12$ 个数的平均值并按要求输出</p>
+<h2 id="二、题目分析"><a href="#二、题目分析" class="headerlink" title="二、题目分析"></a>二、题目分析</h2><p>求平均数显然不是难点，这里不再赘述。本题的重难点在于输出，<del>要不然这道题也不会是紫的</del>。</p>
+<p>所以，我们来整理一下本题的逻辑：</p>
+<ol>
+<li>求出平均值</li>
+<li>保留 $2$ 位小数四舍五入</li>
+<li>将答案拆分成两部分</li>
+<li>打印</li>
+</ol>
+<p>理清了逻辑，代码也就不难了</p>
+<blockquote>
+<p>本文使用 Python，C++ 可以看别的题解</p>
+</blockquote>
+<p>这里我们可以利用一些 Python 的特点来简化代码 <del>（Python 党狂喜）</del>，</p>
+<p>我们可以直接将舍入后的答案直接转为字符串，利用 Python 的<strong>切片</strong>进行输出</p>
+<h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>):</span><br><span class="line">        s += <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    ans = <span class="built_in">round</span>(s / <span class="number">12</span>, <span class="number">2</span>)</span><br><span class="line">    ansStr = <span class="built_in">str</span>(ans)</span><br><span class="line">    <span class="keyword">if</span> ansStr[-<span class="number">2</span>] == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">        ansStr += <span class="string">&#x27;0&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> ans &gt;= <span class="number">1000</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr[:-<span class="number">6</span>] + <span class="string">&#x27;,&#x27;</span> + ansStr[-<span class="number">6</span>:])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UVA10432 题解</title>
+    <url>/UVA10432.html</url>
+    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>没啥好说的，就是求半径为 $r$ 的圆的内接正 $n$ 边形</p>
+<h2 id="二、公式推导"><a href="#二、公式推导" class="headerlink" title="二、公式推导"></a>二、公式推导</h2><p><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/13c357531ec2fd93.png" alt></p>
+<p>$\because \angle AOB = \dfrac{360^{\circ}}{n}$</p>
+<p>$\therefore \sin \angle AOB = \dfrac{j}{r} = \sin \dfrac{360^{\circ}}{n} = \sin \dfrac{2 \pi}{n}$  （计算机中的三角函数以弧度计算）</p>
+<p>$\therefore j = \sin \dfrac{2 \pi}{n} \times r$</p>
+<p>$\therefore S_{\triangle_{ABO}} = \dfrac{1}{2}r \times j = \dfrac{1}{2}r \times (\sin \dfrac{2 \pi}{n} \times r) = \dfrac{1}{2}r^2\sin \dfrac{2 \pi}{n}$</p>
+<p>$\therefore S_{\odot_{O}} = nS_{\triangle_{ABO}} = \dfrac{1}{2}nr^2\sin \dfrac{2 \pi}{n}$</p>
+<h2 id="三、AC-程序"><a href="#三、AC-程序" class="headerlink" title="三、AC 程序"></a>三、AC 程序</h2><p>程序比较简单，就不写注释了</p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r, n = <span class="built_in">input</span>().split(<span class="string">&#x27; &#x27;</span>)[:<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    r, n = <span class="built_in">eval</span>(r), <span class="built_in">eval</span>(n)</span><br><span class="line">    ans = n * (r ** <span class="number">2</span>) * math.sin(<span class="number">2</span> * math.pi / n) / <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;%.3f&#x27;</span>%ans)</span><br></pre></td></tr></table></figure>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><h4 id="必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi"><a href="#必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi" class="headerlink" title="必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 std::number::pi"></a>必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 <code>std::number::pi</code></h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> r, n;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> pi=<span class="number">3.14159265358979</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin&gt;&gt;r&gt;&gt;n)&#123;</span><br><span class="line">        <span class="type">double</span> ans = n * r * r * <span class="built_in">sin</span>(<span class="number">2</span> * pi / n) / <span class="number">2.0</span>;</span><br><span class="line">        cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">3</span>)&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UVA613 题解</title>
+    <url>/UVA613-solution.html</url>
+    <content><![CDATA[<p><a href="https://www.henry-ji.tk/2022/12/29/UVA613-translate/">UVA 613 Numbers That Count 翻译 | Henry-ji 的小站</a></p>
+<h2 id="一、题目分析"><a href="#一、题目分析" class="headerlink" title="一、题目分析"></a>一、题目分析</h2><ul>
+<li><p>仔细阅读题目，不难发现本题是一个纯模拟题，只需要通过递归求每个数的”记录数“即可。</p>
+</li>
+<li><p>记录数的计算：构建长度为 10 的 list，记录各数字的出现次数，最后拼成一个数即可</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">inventory</span>(<span class="params">n</span>):    <span class="comment"># 计算”记录数“</span></span><br><span class="line">    countList = [<span class="number">0</span>] * <span class="number">10</span>    <span class="comment"># 统计数字的出现频率</span></span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">str</span>(n):</span><br><span class="line">        countList[<span class="built_in">int</span>(c)] += <span class="number">1</span></span><br><span class="line">    ans = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">if</span> countList[i] != <span class="number">0</span>:</span><br><span class="line">            ans += <span class="built_in">str</span>(countList[i]) + <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(ans)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数的分类（为了简化代码，我们以迭代的次数 $j$ 以及循环的长度 $k$ 来进行分类）</p>
+<ul>
+<li>$j = 0$：本来就是”自记录数“</li>
+<li>$j = 14$ 且 $k = 0$：已经进行了 $15$ 次迭代但依旧未找到循环，即无法分类</li>
+<li>$j &lt; 14$ 且 $k = 0$：循环长度为零，即在迭代后成为了“自记录数”</li>
+<li>$j &lt; 14$ 且 $k \ne 0$：即在 $j$ 次迭代后生成了长度为 $k + 1$ 的循环（算上循环开始的第一个数）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> j == <span class="number">0</span>:    <span class="comment"># 循环长度为 0，即本身就是”自记录数“</span></span><br><span class="line">    <span class="built_in">print</span>(n, <span class="string">&#x27;is self-inventorying&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> j == <span class="number">14</span> <span class="keyword">and</span> k == <span class="number">0</span>:    <span class="comment"># 已经进行了 15 次迭代仍未找到循环，即无法分类</span></span><br><span class="line">    <span class="built_in">print</span>(n, <span class="string">&#x27;can not be classified after 15 iterations&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> k == <span class="number">0</span>:    <span class="comment"># 循环长度为 0，即在 j 次迭代后成为”自记录数“</span></span><br><span class="line">    <span class="built_in">print</span>(n, <span class="string">&#x27;is self-inventorying after&#x27;</span>, j, <span class="string">&#x27;steps&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:    <span class="comment"># 即 j 次迭代后进入长度为 k + 1 的循环</span></span><br><span class="line">    <span class="built_in">print</span>(n, <span class="string">&#x27;enters an inventory loop of length&#x27;</span>, k + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>二、AC Code</p>
+<p>理清思路后代码就很好写了，下面放上 AC 代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">inventory</span>(<span class="params">n</span>):    <span class="comment"># 计算”记录数“</span></span><br><span class="line">    countList = [<span class="number">0</span>] * <span class="number">10</span>    <span class="comment"># 统计数字的出现频率</span></span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">str</span>(n):</span><br><span class="line">        countList[<span class="built_in">int</span>(c)] += <span class="number">1</span></span><br><span class="line">    ans = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">if</span> countList[i] != <span class="number">0</span>:</span><br><span class="line">            ans += <span class="built_in">str</span>(countList[i]) + <span class="built_in">str</span>(i)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(ans)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">l, n</span>):    <span class="comment"># 查找函数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(l)):</span><br><span class="line">        <span class="keyword">if</span> l[i] == n:</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">classify</span>(<span class="params">n</span>):    <span class="comment"># 分类函数</span></span><br><span class="line">    memList = []</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">15</span>):</span><br><span class="line">        next_n = inventory(n)</span><br><span class="line">        <span class="keyword">if</span> n == next_n:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        p = find(memList, next_n)</span><br><span class="line">        <span class="keyword">if</span> p != -<span class="number">1</span>:</span><br><span class="line">            k = j - p</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        memList.append(n)</span><br><span class="line">        n = next_n</span><br><span class="line">    <span class="keyword">return</span> j, k    <span class="comment"># j 指迭代的次数，k 指循环起始位</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">if</span> n == -<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    j, k = classify(n)</span><br><span class="line">    <span class="keyword">if</span> j == <span class="number">0</span>:    <span class="comment"># 循环长度为 0，即本身就是”自记录数“</span></span><br><span class="line">        <span class="built_in">print</span>(n, <span class="string">&#x27;is self-inventorying&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> j == <span class="number">14</span> <span class="keyword">and</span> k == <span class="number">0</span>:    <span class="comment"># 已经进行了 15 次迭代仍未找到循环，即无法分类</span></span><br><span class="line">        <span class="built_in">print</span>(n, <span class="string">&#x27;can not be classified after 15 iterations&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> k == <span class="number">0</span>:    <span class="comment"># 循环长度为 0，即在 j 次迭代后成为”自记录数“</span></span><br><span class="line">        <span class="built_in">print</span>(n, <span class="string">&#x27;is self-inventorying after&#x27;</span>, j, <span class="string">&#x27;steps&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:    <span class="comment"># 即 j 次迭代后进入长度为 k + 1 的循环</span></span><br><span class="line">        <span class="built_in">print</span>(n, <span class="string">&#x27;enters an inventory loop of length&#x27;</span>, k + <span class="number">1</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
+    <url>/cloudflare-pages.html</url>
+    <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
+<h2 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h2><h3 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h3><p>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
+<h3 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h3><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
+<p>P.S. 关于如何免费注册及激活域名在前往</p>
+<h3 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h3><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
+<h3 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h3><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
+<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Cloudflare</tag>
+        <tag>freenom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UVA 613 Numbers That Count 翻译</title>
+    <url>/UVA613-translate.html</url>
+    <content><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>“Kronecker’s Knumbers” 是一个专门生产塑料数字板的小公司。公司的老版和唯一的员工 Klyde Kronecker 通过维护库存簿来跟踪他使用的每种类型的数字。例如：他刚刚做了一个包含了电话号码 $5553141$，他就会在库存簿的一列上写下 $5553141$，并在下一列他会列出他所使用的数字及其个数：两个 $1$，一个 $3$，一个 $4$，三个 $5$。（没有用到的数字不会出现在记录中）他会以缩写的形式书写库存簿，比如：$21131435$，他将这种形式称为”记录序列“。</p>
+<p>一天，Klyde 对“31123314”的记录感到十分惊讶——它包含了：三个 $1$，一个 $2$，三个 $3$，一个 $4$！他称呼这样的数为“自记录数”。他想找出哪些数是“自记录数”，或者会进入一个“记录循环”（循环的定义会在下面说明）。现在，你被 Klyde 雇佣来完成这项调查。</p>
+<p>你会得到一个非负数 $n$ ，他的“记录序列”是 $c_1d_1c_2d_2…c_kd_k$ ， 其中 $c_i$ 和 $d_i$ 均为非负整数，同时 $d_i$ 满足 $0 \le d_1 &lt; d_2 &lt; … &lt; d_k \le 9$。比如：对于 $5553141$ 来说，我们认为 $c_1 = 2,d_1 = 1,c_2 = 1,d_2 = 3…$，所以它的“记录数”就是 $21131435$，又比如 $1000000000000$ 的“记录数”就是 $12011$（十二个 $0$，一个 $1$）。</p>
+<p>如果一个整数 $n$ 与其“记录数”相等，则我们称 $n$ 为一个“自记录数”。如果一个整数 $n$ 在 $j(j \ge 1 )$ 次“记录迭代”后成为了一个“自记录数”，我们就称 $n$ 在 $j$ 次后成为了“自记录数”。比如：$21221314$ 的“记录数”是 $31321314$，$31321314$ 的“记录数”是 $31123314$，而 $31123314$ 是一个”自记录数“，所以我们称 $211221314$ 在 $2$ 次后成为了”自记录数“。</p>
+<p>最后，如果一个整数 $n$ 在 $j(j \le 0)$ 次”记录迭代“后的值等于其在 $j+k(k \le 2)$ 次”记录迭代后“的值，那么我们称 $n$ 进入了一个长度为 $k$（$k$ 是符合条件的最小值） 的”自记录循环“。比如：$314213241519$ 的”记录数“是 $412223241519$，$412223241519$ 的”记录数“是 $314213241519$，所以我们称 $314213241519$ 进入了一个长度为 $2$ 的”记录循环“（在本例中 $j = 0$）。</p>
+<p>请你编写一个程序，输入一个正整数序列，指出每个数是”自记录数“（n is self-inventorying），或者它在 $j$ 次后成为了”自记录数“（n is self-inventorying after j steps），或者它进入了长度为 $k$ 的”记录循环“（n enters an inventory loop of length k），或者它在 $15$ 次迭代后不符合以上的任意情况（n can not be classified after 15 iterations）。</p>
+<h2 id="输入数据"><a href="#输入数据" class="headerlink" title="输入数据"></a>输入数据</h2><p>输入是一个由多个非负整数组成数列，每行一个数，由 $-1$ 代表结束，没有前导零。</p>
+<h2 id="输出数据"><a href="#输出数据" class="headerlink" title="输出数据"></a>输出数据</h2><p>对于每一个输入的正整数 $n$，输出以下任意一条消息（$n$ 是输入的正整数，$j$ 是一个正整数，$k$ 是一个大于 $1$ 的正整数）：</p>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">n is self-inventorying</span><br><span class="line">n is self-inventorying after j steps</span><br><span class="line">n enters an inventory loop of length k</span><br><span class="line">n can not be classified after 15 iterations</span><br></pre></td></tr></table></figure>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">22</span><br><span class="line">31123314</span><br><span class="line">314213241519</span><br><span class="line">21221314</span><br><span class="line">111222234459</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">22 is self-inventorying</span><br><span class="line">31123314 is self-inventorying</span><br><span class="line">314213241519 enters an inventory loop of length 2</span><br><span class="line">21221314 is self-inventorying after 2 steps</span><br><span class="line">111222234459 enters an inventory loop of length 2</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>翻译</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站正式迁移到全新域名</title>
+    <url>/domain.html</url>
+    <content><![CDATA[<center><font size="6">本站正式迁移到全新域名：<a href="https://www.henry-ji.tk">henry-ji.tk</a></font></center>]]></content>
+  </entry>
+  <entry>
+    <title>洛谷百粉福利——抄粉丝名</title>
+    <url>/fan-names.html</url>
+    <content><![CDATA[<p>感谢大家一路以来的支持，忠心希望洛谷越来越好！ （〃｀ 3′〃）</p>
+<blockquote>
+<p>字丑勿喷，谢谢</p>
+</blockquote>
+<details>
+    <summary>展开图片</summary>
+    <img data-src="https://s3.bmp.ovh/imgs/2022/08/23/88fddf217754cfba.jpg">
+    <img data-src="https://s3.bmp.ovh/imgs/2022/08/23/001991b2274027eb.jpg">
+</details>
+
+]]></content>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用 freenom 注册免费域名并绑定 Cloudflare DNS 服务</title>
+    <url>/freenom-domain.html</url>
+    <content><![CDATA[<h2 id="一、关于-freenom"><a href="#一、关于-freenom" class="headerlink" title="一、关于 freenom"></a>一、关于 freenom</h2><p><a href="https://my.freenom.com/clientarea.php">freenom</a> 是一个主营免费域名注册的网站。你可以在这里方便地注册 .ml / .tk 等免费域名</p>
+<h2 id="二、注册域名"><a href="#二、注册域名" class="headerlink" title="二、注册域名"></a>二、注册域名</h2><p>出于某种奇怪的原因，freenom 隐藏了账号注册入口，所以我们需要先通过以下的方法注册一个账号</p>
+<h3 id="1）注册账号"><a href="#1）注册账号" class="headerlink" title="1）注册账号"></a>1）注册账号</h3><ol>
+<li>进入 <a href="https://my.freenom.com/clientarea.php">freenom 首页</a>，选择 <code>Partners &gt; Developers &gt; Learn more about Random Domains &gt; Get a Random Domains Accout today!</code></li>
+<li>输入你的邮箱并点击 <code>Verify My Email Address</code></li>
+<li>点击邮箱中的链接并填写信息</li>
+</ol>
+<blockquote>
+<p>如果点击链接后未正确跳转，则应按照 二、1） 中的操作重新进入信息填写界面</p>
+<p>此处的个人信息务必按照以下要求填写：</p>
+<p>i. 未开启代理（不推荐）：填写属于<strong>中国</strong>的信息（手机号、地址）</p>
+<p>ii. 开启代理，智能模式：填写属于<strong>中国</strong>的信息（手机号、地址）</p>
+<p>iii. 开启代理，全局模式：填写属于<strong>美国</strong>的信息（手机号、地址）</p>
+</blockquote>
+<ol>
+<li>点击 <code>Complete Orders</code></li>
+</ol>
+<h3 id="2）注册域名"><a href="#2）注册域名" class="headerlink" title="2）注册域名"></a>2）注册域名</h3><ol>
+<li>登录刚才激活的账号</li>
+<li><code>Services &gt; Register a New Domain</code></li>
+<li>输入你想注册的域名（无需包括后缀）并点击 <code>Check Availability</code></li>
+<li>选择你想要的域名，点击 <code>Checkout</code><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/7f07bfc82706a41c.png" alt></li>
+<li>为每个域名选择 12 Months @ FREE（要等一会才能加载出选择框）</li>
+<li><code>Continue &gt; Complete Order</code></li>
+<li>看到这样的页面就说明域名申请成功<img data-src="https://s3.bmp.ovh/imgs/2022/08/17/d49c69848f90585b.png" alt><blockquote>
+<p>这里如果提示 <code>出现技术错误</code> 则说明个人信息填写错误，请仔细查看 <code>注册账号</code> 中的注释</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="三、利用-Cloudflare-配置-DNS-服务"><a href="#三、利用-Cloudflare-配置-DNS-服务" class="headerlink" title="三、利用 Cloudflare 配置 DNS 服务"></a>三、利用 Cloudflare 配置 DNS 服务</h2><ol>
+<li>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示完成注册</li>
+<li>进入 <code>Cloudflare 控制台</code> 后，点击 <code>网站 &gt; 添加站点</code>，填写刚才注册好的域名，选择 <code>Free</code> 计划</li>
+<li>点击侧栏中的 <code>DNS</code>，复制下图中所展示的两个地址<img data-src="https://s3.bmp.ovh/imgs/2022/08/17/de9988c18a55424d.png" alt></li>
+<li>回到 <code>freenom &gt; Services &gt; My Domains</code>‘</li>
+<li>点击域名后面的 <code>Manage Domain &gt; Management Tools &gt; Nameservers &gt; Use custom nameservers (enter below)</code></li>
+<li>在 <code>Nameserver 1</code> 和 <code>Nameserver 2</code> 中填写刚才复制的两个地址，点击 <code>Change Nameserver</code></li>
+<li>等待 Cloudflare 检查名称服务器，检查完成后即激活成功，可在 DNS 页面中继续配置 DNS</li>
+</ol>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Cloudflare</tag>
+        <tag>freenom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JetBrains产品全版本激活补丁使用教程</title>
+    <url>/jetbrains.html</url>
+    <content><![CDATA[<h2 id="补丁使用方法"><a href="#补丁使用方法" class="headerlink" title="补丁使用方法"></a>补丁使用方法</h2><p>1.打开<a href="/html/jetbrains/index.html" target="_blank">网址</a>，点击下载并解压我打包好的最新版的激活插件</p>
+<p>2.打开解压的目录，运行 <code>scripts/install-all-users.vbs</code> (Windows) 或 <code>scripts/install.sh</code> (Mac / Linux)</p>
+<p>3.打开 JetBrains IDE，这里使用 IntelliJ IDEA Ultimate 进行演示，届时会提示你激活</p>
+<p>4.打开步骤1提到的网址，然后找到对应的工具或者插件名称，然后鼠标移到工具名称下面的 ***** 那里，然后点击复制即可</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/aa857692731fb127.png" alt="复制并粘贴密钥"></p>
+<p>5.返回到IDEA IDE工具中，点击激活码，然后将复制的激活码粘贴进去点击激活即可，插件和主题激活同理</p>
+<p>6.激活完成</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/07/8815db13d432eea8.png" alt="激活完成"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>JetBrains</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用 Vmware 和 CLion 搭建 Linux 远程开发环境</title>
+    <url>/linux.html</url>
+    <content><![CDATA[<p>大多数竞赛都是使用 Linux 进行评测的，而有很多程序在 Linux 和 Windows 下会得出不相同的运行结果。那么，如何解决这个问题呢？</p>
+<p>本文主要介绍了一种利用 Vmware 和 CLion 搭建 Linux 远程开发环境的方法。</p>
+<h2 id="一、安装虚拟机"><a href="#一、安装虚拟机" class="headerlink" title="一、安装虚拟机"></a>一、安装虚拟机</h2><ol>
+<li><a href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_pro/17_0#product_downloads">点击这里从官网下载  VMware Workstation</a><br>注：本文使用 VMware Workstation Pro 17.0 for Windows 进行演示</li>
+<li><a href="https://cn.ubuntu.com/download/desktop">点击这里从官网下载 Ubuntu 桌面系统</a><br>注：本文使用 Ubuntu 22.10 进行演示</li>
+<li>打开 Vmware Workstation，点击<code>新建虚拟机</code>，选择<code>典型</code>，下一步<br><img data-src="https://s3.bmp.ovh/imgs/2022/12/30/ac41a3b80f7f7f18.png"></li>
+<li>选择我们刚才下载的 Ubuntu 的 ISO 文件，下一步<br><img data-src="https://s3.bmp.ovh/imgs/2022/12/30/3f5984acc436ea0b.png" alt></li>
+<li>填写用户名、密码等，下一步</li>
+<li>接下来，我们修改虚拟机的存储位置（不建议放在 C 盘）</li>
+<li>输入硬盘的大小后，我们可以通过自定义硬件来修改虚拟机的 CPU 和内存分配，依照实际情况决定即可<img data-src="https://s3.bmp.ovh/imgs/2022/12/30/229c0253fe280e80.png" alt></li>
+<li>这里我们先不开启虚拟机，点击<code>编辑虚拟机设置</code> -&gt; <code>高级</code> -&gt; <code>不为启动了 Hyper-V 的主机启用侧通道缓解</code>，这样可以一定程度上提升虚拟机的性能</li>
+<li>开启虚拟机，根据 Ubuntu 的安装向导完成系统安装</li>
+</ol>
+<h2 id="二、Ubuntu-的配置"><a href="#二、Ubuntu-的配置" class="headerlink" title="二、Ubuntu 的配置"></a>二、Ubuntu 的配置</h2><p>接下来，我们需要对 Ubuntu 进行一些配置来提升使用体验。</p>
+<h3 id="1）换源"><a href="#1）换源" class="headerlink" title="1）换源"></a>1）换源</h3><p>由于默认的软件源在中国访问速度是在太烂，所以我们要换一个中国的源。</p>
+<ol>
+<li><p>点击桌面左下角的 9 个点，找到<code>Software Updater</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/12/30/bd9682b8f9855a7b.png" alt></p>
+</li>
+<li><p>接着点击<code>Settings</code> -&gt; <code>Ubuntu Software</code> -&gt; <code>Download from</code> -&gt; <code>Others</code> -&gt; <code>China</code>，随便选择一个，点击<code>Choose Server</code> -&gt; <code>Revert</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/12/30/ed5a50f30bda3b80.png" alt></p>
+</li>
+<li><p>等待加载完成后在桌面上右键，点击<code>Open in Terminal</code>，依次输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="2）切换语言"><a href="#2）切换语言" class="headerlink" title="2）切换语言"></a>2）切换语言</h3><p>虽然不是看不懂英文，但是毕竟没有中文用起来习惯，所以我们接下来要把 Ubuntu 切换成中文</p>
+<ol>
+<li>点击桌面左下角的 9 个点，找到<code>Language Support</code></li>
+<li>点击<code>Install/Remove Languages...</code>，勾选<code>Chinese(Simplified)</code>，点击<code>Apply</code><img data-src="https://s3.bmp.ovh/imgs/2022/12/30/757829a9a0e74e72.png" alt></li>
+<li>然后我们把<code>汉语（中国）</code>拖到最上面，点击<code>Apply System-Wide</code> -&gt; <code>Close</code><img data-src="https://s3.bmp.ovh/imgs/2022/12/30/2d86aa3883bd9b6c.png" alt></li>
+<li>点击右上角，Log Out 并重新登录后就会发现我们的系统已经成功地切换到了中文<img data-src="https://s3.bmp.ovh/imgs/2022/12/30/ad5877d4fecbc366.png" alt></li>
+</ol>
+<h2 id="三、CLion-的安装与激活"><a href="#三、CLion-的安装与激活" class="headerlink" title="三、CLion 的安装与激活"></a>三、CLion 的安装与激活</h2><ol>
+<li><p>打开<code>Ubuntu Software</code>，搜索<code>CLion</code>，点击安装<img data-src="https://s3.bmp.ovh/imgs/2022/12/30/3461b19479aaba95.png" alt></p>
+</li>
+<li><p>进入<a href="https://www.henry-ji.tk/html/jetbrains/">JetBrains 许可证 (henry-ji.tk)</a>，下载<code>jetbra.zip</code></p>
+</li>
+<li><p>解压后进入<code>scripts</code>文件夹，右键空白处，在终端中打开<img data-src="https://s3.bmp.ovh/imgs/2022/12/30/90ac7c0652b0e023.png" alt></p>
+</li>
+<li><p>输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ./install.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如 二/2)/4 中的操作进行注销并重新登录</p>
+</li>
+<li><p>在<a href="https://www.henry-ji.tk/html/jetbrains/">JetBrains 许可证 (henry-ji.tk)</a>点击<code>CLion</code>下的复制到剪切板</p>
+</li>
+<li><p>打开<code>CLion</code>，选择<code>Activation Code</code>，在框中粘贴刚刚复制的代码，点击<code>Activate</code></p>
+</li>
+<li><p>在主机（Windows 系统）中安装<code>CLion</code>（从官网上下载即可，不再赘述</p>
+</li>
+<li><p>在主机上下载<code>jetbra.zip</code>，以管理员身份运行<code>scripts</code>文件夹下的<code>install-all-users.vbs</code></p>
+</li>
+<li><p>在主机上打开<code>CLion</code>，选择<code>Activation Code</code>，在框中粘贴刚刚复制的代码，点击<code>Activate</code></p>
+</li>
+</ol>
+<h2 id="三、配置远程连接"><a href="#三、配置远程连接" class="headerlink" title="三、配置远程连接"></a>三、配置远程连接</h2><ol>
+<li><p>在 Ubuntu 的终端中运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install g++</span><br><span class="line">sudo apt-get install openssh-server</span><br><span class="line">service ssh restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接着运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p>记下输出的 IP 地址<img data-src="https://s3.bmp.ovh/imgs/2022/12/30/d621d8525f8f50a8.png" alt></p>
+</li>
+<li><p>打开主机上的<code>CLion</code>，进入<code>设置</code> -&gt; <code>构建、执行、部署</code> -&gt; <code>工具链</code> -&gt; <code>加号</code> -&gt; <code>远程主机</code><img data-src="https://s3.bmp.ovh/imgs/2022/12/30/0f9d127ac729676a.png" alt></p>
+</li>
+<li><p>点击<code>凭据</code>右边的齿轮，输入刚才的 IP 地址，测试连接成功后点击<code>确定</code>即可<img data-src="https://s3.bmp.ovh/imgs/2022/12/30/4cd8f0b09c0d0d6d.png" alt></p>
+</li>
+<li><p>接下来，我们只需要像下图一样配置好<code>CMake</code>，就可以运行了<img data-src="https://s3.bmp.ovh/imgs/2022/12/30/6af39d23d78dae23.png" alt></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+        <tag>CLion</tag>
+        <tag>Jetbrains</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记洛谷 2022/10/06 的一次大崩溃</title>
+    <url>/luogu-boom.html</url>
+    <content><![CDATA[<p><img data-src="https://s3.bmp.ovh/imgs/2022/10/06/42e2d5bb492b3656.png" zoom="25%"><br><img data-src="https://s3.bmp.ovh/imgs/2022/10/06/609a0ecb8bec2d72.png" zoom="25%"><br><img data-src="https://s3.bmp.ovh/imgs/2022/10/06/20e917c53f68a58f.png" zoom="25%"><br><img data-src="https://s3.bmp.ovh/imgs/2022/10/06/cb66a0338f30b16f.png" zoom="25%"><br><img data-src="https://s3.bmp.ovh/imgs/2022/10/06/18a076b7625f7368.png" zoom="25%"></p>
+]]></content>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next 主题美化分享</title>
+    <url>/next-theme.html</url>
+    <content><![CDATA[<p>最近我将博客的 NexT 主题更新到了 <code>7.8.0</code> 版本，结果不出所料的发生了一些问题，一通百度过后我找到了如下两篇文章供大家参考：</p>
+<p><a href="https://blog.csdn.net/tuckEnough/article/details/107383201">hexo theme next7.8 主题美化 by orduster
+</a></p>
+<p><a href="https://blog.csdn.net/qq_35396510/article/details/105953460">hexo 主题 next7.8 版本配置美化 by uKnow_AL
+</a></p>
+<p>当然，如果我的美化能有幸被您看中的话，我也很乐意您来抄抄作业</p>
+<p>我已经将我的博客中的 <code>hexo/themes/next</code> 文件夹和 <code>hexo/source</code> 文件夹（排除 <code>hexo/source/_posts</code> 文件夹）分别压缩成 <code>.zip</code> 文件并上传到 <a href="https://github.com/henry-ji/blog_share">Github 仓库</a>，欢迎大家来下载</p>
+<p>如果您觉得我的美化不错，也不妨 star + fork，感谢</p>
+<p>如果您访问 Github 有困难，也可以直接下载 <a href="blog_share.zip">blog_share.zip</a></p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>nexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何永久白嫖 Microsoft Office 365</title>
+    <url>/office-365.html</url>
+    <content><![CDATA[<h2 id="一、Office-Tool-Plus"><a href="#一、Office-Tool-Plus" class="headerlink" title="一、Office Tool Plus"></a>一、Office Tool Plus</h2><h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><p><a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> 是一款 Office 小工具，可以帮助您部署 Office</p>
+<h3 id="2、下载"><a href="#2、下载" class="headerlink" title="2、下载"></a>2、下载</h3><p><a href="https://otp.landian.vip/redirect/download.php?type=runtime&amp;site=sdumirror">点击此处</a>以通过官网下载可直接运行的 zip 包</p>
+<p>更多下载选项请<a href="https://otp.landian.vip/zh-cn/download.html">点击此处</a>。</p>
+<h2 id="二、部署-Office"><a href="#二、部署-Office" class="headerlink" title="二、部署 Office"></a>二、部署 Office</h2><ol>
+<li>在 <code>部署</code> 选项卡中添加 <code>Microsoft 365 企业应用版</code> 并按需选择应用程序</li>
+<li><code>通道</code> 可自行选择（不同通道的更新频率不同）</li>
+<li>建议选中 <code>下载后再部署</code>，速度更快</li>
+<li><code>创建桌面快捷方式</code> 按需勾选即可</li>
+<li>点击开始部署</li>
+</ol>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/828813440a1d1c6a.png" alt="部署"></p>
+<h2 id="三、激活-Office"><a href="#三、激活-Office" class="headerlink" title="三、激活 Office"></a>三、激活 Office</h2><ol>
+<li>切换到 <code>激活</code> 选项卡，在 <code>许可证管理</code> 中选择 <code>Office Mondo 2016 - 批量许可证</code> 并点击 <code>安装许可证</code></li>
+<li>在 <code>KMS 主机</code> 中填入 <code>kms.03k.org</code>，端口留空，点击 <code>保存设置</code></li>
+<li>等待 3 分钟后点击 <code>激活</code></li>
+</ol>
+<p><strong>注：密钥管理无需填写，留空即可</strong></p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/4bb0fd0bedcd9b27.png" alt="激活"></p>
+<h2 id="四、结束"><a href="#四、结束" class="headerlink" title="四、结束"></a>四、结束</h2><p>等待一会后打开一个 Office 应用，切换到 <code>账户</code> 选项卡，看到 <code>产品已激活</code> 后即为激活成功</p>
+<p><img data-src="https://s3.bmp.ovh/imgs/2022/08/04/5402862027ac2da7.png" alt="完成"></p>
+<p>若激活失败可参考 <a href="https://otp.landian.vip/docs/zh-cn/">Office Tool Plus 帮助文档</a></p>
+<hr>
+<p>2023/07/12 更新：<br>1、Office Tool Plus 由于更新界面有些变动，但具体操作不变</p>
+<p>2、若电脑上本身安装有任意版本的 Office，请先用 OTP &gt; 工具箱 &gt; 移除 Office 功能将其卸载后再进行部署与激活（保险起见建议至少运行”移除 Office“ 3 次）</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Microsoft</tag>
+        <tag>Microsoft Office</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XYOI 标程</title>
+    <url>/std.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请联系 @X_Z_Y / @Henry-ji 获取密码" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d915639e4e12aa4a6fe2c7ce5d85e5ce497531b6b18a53a1344ddba858e2e398">915b79548119df679280aa11de405b35261d2e571ce1d9cfebf07e4757e9bcfe995d3f73d00f92ff8c43c7aab0185c8aa73cbcd50716f35119b14407164aeab5bafd0e4ce61dab1493bc420b405400fdcc2037ff83e8d0bc66172a11ebc8e862d175bb09b78c02c79eae55134baad3d3fc9e49cbe589dbbc16801c265fb9ee14a6b96cc34b5e63720f7d673c4e8d25b6</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这里用于存放 XYOI 的标程，请输入密码查看</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>洛谷二百粉福利投票</title>
+    <url>/vote.html</url>
+    <content><![CDATA[<p>请把你想看的二百粉福利留在评论区，谢谢</p>
+<p><del>洛谷万岁！</del></p>
+]]></content>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+</search>
