@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CF292A 题解</title>
+    <url>/CF292A.html</url>
+    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>简单阅读一边题目，看一眼数据范围，发现 $n \le 1000$。显然，最多 $1000$ 条申请直接模拟即可。</p>
+<h2 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h2><p>没什么好说的，忠实地模拟每一条申请即可。</p>
+<blockquote>
+<p>一定要注意操作的逻辑、时间顺序以及最大值的记录时间</p>
+</blockquote>
+<h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">cnt = <span class="number">0</span>  <span class="comment"># 消息队列中的消息个数</span></span><br><span class="line">lt = <span class="number">0</span>  <span class="comment"># 上一条申请的时间</span></span><br><span class="line">mn = <span class="number">0</span>  <span class="comment"># 队列最长的长度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    t, c = <span class="built_in">input</span>().split()</span><br><span class="line">    t, c = <span class="built_in">int</span>(t), <span class="built_in">int</span>(c)</span><br><span class="line">    cnt -= t - lt  <span class="comment"># 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">    lt = t  <span class="comment"># 记录本次申请的时间</span></span><br><span class="line">    <span class="keyword">if</span> cnt &lt; <span class="number">0</span>:  <span class="comment"># 如果减过头就再加回来</span></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">    cnt += c  <span class="comment"># 加上本次申请加入的消息</span></span><br><span class="line">    <span class="keyword">if</span> cnt &gt; mn:  <span class="comment"># 如果有更大的 n 就记录下来</span></span><br><span class="line">        mn = cnt</span><br><span class="line"><span class="built_in">print</span>(cnt + t, mn)  <span class="comment"># 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, cnt, lt, mn, t, c;  <span class="comment">// 与 Python 代码中的变量含义相同，不再赘述</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; t &gt;&gt; c;</span><br><span class="line">        cnt -= t - lt;  <span class="comment">// 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">        lt = t;  <span class="comment">// 记录本次申请的时间</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &lt; <span class="number">0</span>) cnt = <span class="number">0</span>;  <span class="comment">// 如果减过头就再加回来</span></span><br><span class="line">        cnt += c;  <span class="comment">// 加上本次申请加入的消息</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &gt; mn) mn = cnt;  <span class="comment">// 如果有更大的 n 就记录下来</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt + t &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; mn;  <span class="comment">// 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SP26179 题解</title>
     <url>/SP26179.html</url>
     <content><![CDATA[<h2 id="一、题目解释"><a href="#一、题目解释" class="headerlink" title="一、题目解释"></a>一、题目解释</h2><p>本题就是给定大炮和目标的位置以及炮弹速度、风速和风向，求出打中目标的时间。</p>
@@ -37,15 +54,18 @@
       </tags>
   </entry>
   <entry>
-    <title>CF292A 题解</title>
-    <url>/CF292A.html</url>
-    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>简单阅读一边题目，看一眼数据范围，发现 $n \le 1000$。显然，最多 $1000$ 条申请直接模拟即可。</p>
-<h2 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h2><p>没什么好说的，忠实地模拟每一条申请即可。</p>
-<blockquote>
-<p>一定要注意操作的逻辑、时间顺序以及最大值的记录时间</p>
-</blockquote>
-<h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">cnt = <span class="number">0</span>  <span class="comment"># 消息队列中的消息个数</span></span><br><span class="line">lt = <span class="number">0</span>  <span class="comment"># 上一条申请的时间</span></span><br><span class="line">mn = <span class="number">0</span>  <span class="comment"># 队列最长的长度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    t, c = <span class="built_in">input</span>().split()</span><br><span class="line">    t, c = <span class="built_in">int</span>(t), <span class="built_in">int</span>(c)</span><br><span class="line">    cnt -= t - lt  <span class="comment"># 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">    lt = t  <span class="comment"># 记录本次申请的时间</span></span><br><span class="line">    <span class="keyword">if</span> cnt &lt; <span class="number">0</span>:  <span class="comment"># 如果减过头就再加回来</span></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">    cnt += c  <span class="comment"># 加上本次申请加入的消息</span></span><br><span class="line">    <span class="keyword">if</span> cnt &gt; mn:  <span class="comment"># 如果有更大的 n 就记录下来</span></span><br><span class="line">        mn = cnt</span><br><span class="line"><span class="built_in">print</span>(cnt + t, mn)  <span class="comment"># 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, cnt, lt, mn, t, c;  <span class="comment">// 与 Python 代码中的变量含义相同，不再赘述</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; t &gt;&gt; c;</span><br><span class="line">        cnt -= t - lt;  <span class="comment">// 先扣除两次申请之间发送掉的消息</span></span><br><span class="line">        lt = t;  <span class="comment">// 记录本次申请的时间</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &lt; <span class="number">0</span>) cnt = <span class="number">0</span>;  <span class="comment">// 如果减过头就再加回来</span></span><br><span class="line">        cnt += c;  <span class="comment">// 加上本次申请加入的消息</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &gt; mn) mn = cnt;  <span class="comment">// 如果有更大的 n 就记录下来</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt + t &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; mn;  <span class="comment">// 最后一条消息发送出去的时间即为最后申请的时间加还剩的消息数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>UVA10432 题解</title>
+    <url>/UVA10432.html</url>
+    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>没啥好说的，就是求半径为 $r$ 的圆的内接正 $n$ 边形</p>
+<h2 id="二、公式推导"><a href="#二、公式推导" class="headerlink" title="二、公式推导"></a>二、公式推导</h2><p><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/13c357531ec2fd93.png" alt></p>
+<p>$\because \angle AOB = \dfrac{360^{\circ}}{n}$</p>
+<p>$\therefore \sin \angle AOB = \dfrac{j}{r} = \sin \dfrac{360^{\circ}}{n} = \sin \dfrac{2 \pi}{n}$  （计算机中的三角函数以弧度计算）</p>
+<p>$\therefore j = \sin \dfrac{2 \pi}{n} \times r$</p>
+<p>$\therefore S_{\triangle_{ABO}} = \dfrac{1}{2}r \times j = \dfrac{1}{2}r \times (\sin \dfrac{2 \pi}{n} \times r) = \dfrac{1}{2}r^2\sin \dfrac{2 \pi}{n}$</p>
+<p>$\therefore S_{\odot_{O}} = nS_{\triangle_{ABO}} = \dfrac{1}{2}nr^2\sin \dfrac{2 \pi}{n}$</p>
+<h2 id="三、AC-程序"><a href="#三、AC-程序" class="headerlink" title="三、AC 程序"></a>三、AC 程序</h2><p>程序比较简单，就不写注释了</p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r, n = <span class="built_in">input</span>().split(<span class="string">&#x27; &#x27;</span>)[:<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    r, n = <span class="built_in">eval</span>(r), <span class="built_in">eval</span>(n)</span><br><span class="line">    ans = n * (r ** <span class="number">2</span>) * math.sin(<span class="number">2</span> * math.pi / n) / <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;%.3f&#x27;</span>%ans)</span><br></pre></td></tr></table></figure>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><h4 id="必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi"><a href="#必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi" class="headerlink" title="必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 std::number::pi"></a>必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 <code>std::number::pi</code></h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> r, n;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> pi=<span class="number">3.14159265358979</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin&gt;&gt;r&gt;&gt;n)&#123;</span><br><span class="line">        <span class="type">double</span> ans = n * r * r * <span class="built_in">sin</span>(<span class="number">2</span> * pi / n) / <span class="number">2.0</span>;</span><br><span class="line">        cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">3</span>)&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>题解</category>
       </categories>
@@ -137,6 +157,27 @@
       </tags>
   </entry>
   <entry>
+    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
+    <url>/cloudflare-pages.html</url>
+    <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
+<h2 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h2><h3 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h3><p>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
+<h3 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h3><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
+<p>P.S. 关于如何免费注册及激活域名在前往</p>
+<h3 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h3><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
+<h3 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h3><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
+<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Cloudflare</tag>
+        <tag>freenom</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UVA11945 题解</title>
     <url>/UVA11945.html</url>
     <content><![CDATA[<h2 id="一、题目大意"><a href="#一、题目大意" class="headerlink" title="一、题目大意"></a>一、题目大意</h2><p>输入 $n$ 组数据，每组包含 $12$ 个数，求出这 $12$ 个数的平均值并按要求输出</p>
@@ -155,26 +196,6 @@
 <p>这里我们可以利用一些 Python 的特点来简化代码 <del>（Python 党狂喜）</del>，</p>
 <p>我们可以直接将舍入后的答案直接转为字符串，利用 Python 的<strong>切片</strong>进行输出</p>
 <h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>):</span><br><span class="line">        s += <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    ans = <span class="built_in">round</span>(s / <span class="number">12</span>, <span class="number">2</span>)</span><br><span class="line">    ansStr = <span class="built_in">str</span>(ans)</span><br><span class="line">    <span class="keyword">if</span> ansStr[-<span class="number">2</span>] == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">        ansStr += <span class="string">&#x27;0&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> ans &gt;= <span class="number">1000</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr[:-<span class="number">6</span>] + <span class="string">&#x27;,&#x27;</span> + ansStr[-<span class="number">6</span>:])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>洛谷</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UVA10432 题解</title>
-    <url>/UVA10432.html</url>
-    <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>没啥好说的，就是求半径为 $r$ 的圆的内接正 $n$ 边形</p>
-<h2 id="二、公式推导"><a href="#二、公式推导" class="headerlink" title="二、公式推导"></a>二、公式推导</h2><p><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/13c357531ec2fd93.png" alt></p>
-<p>$\because \angle AOB = \dfrac{360^{\circ}}{n}$</p>
-<p>$\therefore \sin \angle AOB = \dfrac{j}{r} = \sin \dfrac{360^{\circ}}{n} = \sin \dfrac{2 \pi}{n}$  （计算机中的三角函数以弧度计算）</p>
-<p>$\therefore j = \sin \dfrac{2 \pi}{n} \times r$</p>
-<p>$\therefore S_{\triangle_{ABO}} = \dfrac{1}{2}r \times j = \dfrac{1}{2}r \times (\sin \dfrac{2 \pi}{n} \times r) = \dfrac{1}{2}r^2\sin \dfrac{2 \pi}{n}$</p>
-<p>$\therefore S_{\odot_{O}} = nS_{\triangle_{ABO}} = \dfrac{1}{2}nr^2\sin \dfrac{2 \pi}{n}$</p>
-<h2 id="三、AC-程序"><a href="#三、AC-程序" class="headerlink" title="三、AC 程序"></a>三、AC 程序</h2><p>程序比较简单，就不写注释了</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r, n = <span class="built_in">input</span>().split(<span class="string">&#x27; &#x27;</span>)[:<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    r, n = <span class="built_in">eval</span>(r), <span class="built_in">eval</span>(n)</span><br><span class="line">    ans = n * (r ** <span class="number">2</span>) * math.sin(<span class="number">2</span> * math.pi / n) / <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;%.3f&#x27;</span>%ans)</span><br></pre></td></tr></table></figure>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><h4 id="必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi"><a href="#必须吐槽一下，UVA-居然不支持-C-20，害的我没法用-std-number-pi" class="headerlink" title="必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 std::number::pi"></a>必须吐槽一下，UVA 居然不支持 C++20，害的我没法用 <code>std::number::pi</code></h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> r, n;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> pi=<span class="number">3.14159265358979</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin&gt;&gt;r&gt;&gt;n)&#123;</span><br><span class="line">        <span class="type">double</span> ans = n * r * r * <span class="built_in">sin</span>(<span class="number">2</span> * pi / n) / <span class="number">2.0</span>;</span><br><span class="line">        cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">3</span>)&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>题解</category>
       </categories>
@@ -211,27 +232,6 @@
       </categories>
       <tags>
         <tag>洛谷</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
-    <url>/cloudflare-pages.html</url>
-    <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
-<h2 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h2><h3 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h3><p>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
-<h3 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h3><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
-<p>P.S. 关于如何免费注册及激活域名在前往</p>
-<h3 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h3><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
-<h3 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h3><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
-<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
-        <tag>Cloudflare</tag>
-        <tag>freenom</tag>
       </tags>
   </entry>
   <entry>

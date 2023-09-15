@@ -81,7 +81,7 @@ NexT.boot.refresh = function() {
    */
   CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
   CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img');
-  // CONFIG.lazyload && window.lozad('.post-body img').observe();
+  CONFIG.lazyload && window.lozad('.post-body img').observe();
   CONFIG.pangu && window.pangu.spacingPage();
 
   CONFIG.exturl && NexT.utils.registerExtURL();
