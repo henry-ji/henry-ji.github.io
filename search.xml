@@ -74,6 +74,69 @@
       </tags>
   </entry>
   <entry>
+    <title>UVA11269 题解</title>
+    <url>/UVA11269.html</url>
+    <content><![CDATA[<h2 id="一、题目翻译"><a href="#一、题目翻译" class="headerlink" title="一、题目翻译"></a>一、题目翻译</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>$ Sultan $ 和 $ GolaphiBaba $ 两个人想一起出一个比赛。$ Sultan $ 负责出题而 $ GolaphiBaba $ 负责数据。请你求出他们出完这场比赛所需要的最短时间。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入会有多组数据，每组数据包含 $3$ 行：</p>
+<ul>
+<li>第一行包含一个正整数 $N$，代表这场比赛有 $N$ 道题</li>
+<li>第二行包含 $N$ 个正整数 $S_i$，表示 $ Sultan $ 出第 $i$ 道题所需的时间</li>
+<li>第三行包含 $N$ 个正整数 $G_i$，表示 $ GolaphiBaba $ 为第 $i$ 道题配数据所需的时间</li>
+</ul>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每组数据，输出一行，表示 $ Sultan $ 和 $ GolaphiBaba $ 出完这场比赛所需要的最短时间。</p>
+<h2 id="二、题目分析"><a href="#二、题目分析" class="headerlink" title="二、题目分析"></a>二、题目分析</h2><p>对于一个最优解问题，显然贪心算法是我们最先想到的方法。</p>
+<p>那么首先，我们来复习一下什么是贪心算法：</p>
+<blockquote>
+<p>贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。</p>
+<p></p><p align="right">—— OI Wiki</p>
+</blockquote>
+<p><img data-src="https://cdn.jsdelivr.net/gh/henry-ji/tu@main/20220824180430.png" align="right" width="400">接着，我们再来看一眼题目，要想用贪心算法解决问题，我们就需要知道每个子问题的解决方法。如果之于本题，就是探究任意两道题应当如何排序。简单分析可以得到以下结论：</p>
+<ul>
+<li>对于任意两道题（$a$ &amp; $b$），既可以先做 $a$ 也可以先做 $b$</li>
+<li>如果先做 $a$，则用时应为 <code>A.s + max(A.g, B.s) + B.g</code></li>
+<li>如果先做 $b$，则用时应为 <code>B.s + max(B.g, A.s) + A.g</code></li>
+</ul>
+<p>知道了以上几点，程序自然也就不难了。</p>
+<h2 id="三、AC-Code"><a href="#三、AC-Code" class="headerlink" title="三、AC Code"></a>三、AC Code</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><blockquote>
+<p>码风较差，将就着看吧</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">problem</span> &#123;</span><br><span class="line">    <span class="type">int</span> s, g;</span><br><span class="line">&#125; pList[<span class="number">1000000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(problem a, problem b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.s + <span class="built_in">max</span>(a.g, b.s) + b.g &lt; b.s + <span class="built_in">max</span>(b.g, a.s) + a.g;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].g;</span><br><span class="line">        <span class="built_in">sort</span>(pList, pList + n, cmp);</span><br><span class="line">        <span class="type">int</span> S = <span class="number">0</span>, G = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            S += pList[i].s;</span><br><span class="line">            <span class="keyword">if</span> (G &lt; S) G = S;</span><br><span class="line">            G += pList[i].g;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; G &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>懒得写排序，先咕着</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UVA11945 题解</title>
+    <url>/UVA11945.html</url>
+    <content><![CDATA[<h2 id="一、题目大意"><a href="#一、题目大意" class="headerlink" title="一、题目大意"></a>一、题目大意</h2><p>输入 $n$ 组数据，每组包含 $12$ 个数，求出这 $12$ 个数的平均值并按要求输出</p>
+<h2 id="二、题目分析"><a href="#二、题目分析" class="headerlink" title="二、题目分析"></a>二、题目分析</h2><p>求平均数显然不是难点，这里不再赘述。本题的重难点在于输出，<del>要不然这道题也不会是紫的</del>。</p>
+<p>所以，我们来整理一下本题的逻辑：</p>
+<ol>
+<li>求出平均值</li>
+<li>保留 $2$ 位小数四舍五入</li>
+<li>将答案拆分成两部分</li>
+<li>打印</li>
+</ol>
+<p>理清了逻辑，代码也就不难了</p>
+<blockquote>
+<p>本文使用 Python，C++ 可以看别的题解</p>
+</blockquote>
+<p>这里我们可以利用一些 Python 的特点来简化代码 <del>（Python 党狂喜）</del>，</p>
+<p>我们可以直接将舍入后的答案直接转为字符串，利用 Python 的<strong>切片</strong>进行输出</p>
+<h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>):</span><br><span class="line">        s += <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    ans = <span class="built_in">round</span>(s / <span class="number">12</span>, <span class="number">2</span>)</span><br><span class="line">    ansStr = <span class="built_in">str</span>(ans)</span><br><span class="line">    <span class="keyword">if</span> ansStr[-<span class="number">2</span>] == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">        ansStr += <span class="string">&#x27;0&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> ans &gt;= <span class="number">1000</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr[:-<span class="number">6</span>] + <span class="string">&#x27;,&#x27;</span> + ansStr[-<span class="number">6</span>:])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UVA10503 题解</title>
     <url>/UVA10503.html</url>
     <content><![CDATA[<h2 id="一、题意分析"><a href="#一、题意分析" class="headerlink" title="一、题意分析"></a>一、题意分析</h2><p>总结题中的骨牌特性：两点、双向，你会想到什么？</p>
@@ -112,90 +175,6 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">card</span> &#123;  <span class="comment">// 骨牌类</span></span><br><span class="line">    <span class="type">int</span> lst, nxt;  <span class="comment">// 此处的 lst，nxt 不代表前后关系，仅表示两者互为正反面关系（除了开头和结尾的两个骨牌）</span></span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">false</span>;  <span class="comment">// 记录这张骨牌是否使用过</span></span><br><span class="line">&#125; start, ed, cur_card, cardList[<span class="number">1000000</span>];  <span class="comment">// 记录所有中间骨牌</span></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">bool</span> solved;  <span class="comment">// 全局记录是否有解</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">find_next</span><span class="params">(<span class="type">int</span> card, <span class="type">int</span> distance)</span> </span>&#123;  <span class="comment">// dfs</span></span><br><span class="line">    <span class="keyword">if</span> (distance == n <span class="keyword">and</span> card == ed.lst) &#123;  <span class="comment">// 符合条件：距离达标且与末尾骨牌连接</span></span><br><span class="line">        solved = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (distance &gt;= n) <span class="keyword">return</span>;  <span class="comment">// 距离已到但未匹配成功</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> c = <span class="number">0</span>; c &lt; m; c++) &#123;</span><br><span class="line">        cur_card = cardList[c];</span><br><span class="line">        <span class="keyword">if</span> (cur_card.lst == card <span class="keyword">and</span> !cur_card.flag) &#123;  <span class="comment">// 前后分别遍历</span></span><br><span class="line">            cardList[c].flag = <span class="literal">true</span>;  <span class="comment">// 标记该骨牌以使用过</span></span><br><span class="line">            <span class="built_in">find_next</span>(cur_card.nxt, distance + <span class="number">1</span>);  <span class="comment">// dfs 搜索，每次深度 +1</span></span><br><span class="line">            cardList[c].flag = <span class="literal">false</span>;  <span class="comment">// dfs 回溯，标记改为未使用状态</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cur_card.nxt == card <span class="keyword">and</span> !cur_card.flag) &#123;</span><br><span class="line">            cardList[c].flag = <span class="literal">true</span>;</span><br><span class="line">            <span class="built_in">find_next</span>(cur_card.lst, distance + <span class="number">1</span>);</span><br><span class="line">            cardList[c].flag = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        cin &gt;&gt; m;</span><br><span class="line">        cin &gt;&gt; start.lst &gt;&gt; start.nxt;</span><br><span class="line">        cin &gt;&gt; ed.lst &gt;&gt; ed.nxt;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) cin &gt;&gt; cardList[i].lst &gt;&gt; cardList[i].nxt;</span><br><span class="line">        solved = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">find_next</span>(start.nxt, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (solved) cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CLS_card</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lst, nxt</span>):  <span class="comment"># 骨牌类</span></span><br><span class="line">        self.lst = lst</span><br><span class="line">        self.nxt = nxt  <span class="comment"># 此处的 lst，nxt 不代表前后关系，仅表示两者互为正反面关系（除了开头和结尾的两个骨牌）</span></span><br><span class="line">        self.flag = <span class="literal">False</span>  <span class="comment"># 记录这张骨牌是否使用过</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_next</span>(<span class="params">card, distance</span>):  <span class="comment"># dfs</span></span><br><span class="line">    <span class="keyword">global</span> solved</span><br><span class="line">    <span class="keyword">if</span> distance == n <span class="keyword">and</span> card == end.lst:  <span class="comment"># 符合条件：距离达标且与末尾骨牌连接</span></span><br><span class="line">        solved = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> distance &gt;= n:  <span class="comment"># 距离已到但未匹配成功</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> cardList:</span><br><span class="line">        <span class="keyword">if</span> c.lst == card <span class="keyword">and</span> c.flag == <span class="literal">False</span>:  <span class="comment"># 前后分别遍历</span></span><br><span class="line">            c.flag = <span class="literal">True</span>  <span class="comment"># 标记该骨牌以使用过</span></span><br><span class="line">            find_next(c.nxt, distance + <span class="number">1</span>)  <span class="comment"># dfs 搜索，每次深度 +1</span></span><br><span class="line">            c.flag = <span class="literal">False</span>  <span class="comment"># dfs 回溯，标记改为未使用状态</span></span><br><span class="line">        <span class="keyword">elif</span> c.nxt == card <span class="keyword">and</span> c.flag == <span class="literal">False</span>:</span><br><span class="line">            c.flag = <span class="literal">True</span></span><br><span class="line">            find_next(c.lst, distance + <span class="number">1</span>)</span><br><span class="line">            c.flag = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    m = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    inp = <span class="built_in">input</span>().split()</span><br><span class="line">    start = CLS_card(<span class="built_in">int</span>(inp[<span class="number">0</span>]), <span class="built_in">int</span>(inp[<span class="number">1</span>]))</span><br><span class="line">    inp = <span class="built_in">input</span>().split()</span><br><span class="line">    end = CLS_card(<span class="built_in">int</span>(inp[<span class="number">0</span>]), <span class="built_in">int</span>(inp[<span class="number">1</span>]))</span><br><span class="line">    cardList = []  <span class="comment"># 记录所有中间骨牌</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        inp = <span class="built_in">input</span>().split()</span><br><span class="line">        cardList.append(CLS_card(<span class="built_in">int</span>(inp[<span class="number">0</span>]), <span class="built_in">int</span>(inp[<span class="number">1</span>])))</span><br><span class="line">    solved = <span class="literal">False</span>  <span class="comment"># 全局记录是否有解</span></span><br><span class="line">    find_next(start.nxt, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">if</span> solved:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;YES&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;NO&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>洛谷</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UVA11269 题解</title>
-    <url>/UVA11269.html</url>
-    <content><![CDATA[<h2 id="一、题目翻译"><a href="#一、题目翻译" class="headerlink" title="一、题目翻译"></a>一、题目翻译</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>$ Sultan $ 和 $ GolaphiBaba $ 两个人想一起出一个比赛。$ Sultan $ 负责出题而 $ GolaphiBaba $ 负责数据。请你求出他们出完这场比赛所需要的最短时间。</p>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入会有多组数据，每组数据包含 $3$ 行：</p>
-<ul>
-<li>第一行包含一个正整数 $N$，代表这场比赛有 $N$ 道题</li>
-<li>第二行包含 $N$ 个正整数 $S_i$，表示 $ Sultan $ 出第 $i$ 道题所需的时间</li>
-<li>第三行包含 $N$ 个正整数 $G_i$，表示 $ GolaphiBaba $ 为第 $i$ 道题配数据所需的时间</li>
-</ul>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每组数据，输出一行，表示 $ Sultan $ 和 $ GolaphiBaba $ 出完这场比赛所需要的最短时间。</p>
-<h2 id="二、题目分析"><a href="#二、题目分析" class="headerlink" title="二、题目分析"></a>二、题目分析</h2><p>对于一个最优解问题，显然贪心算法是我们最先想到的方法。</p>
-<p>那么首先，我们来复习一下什么是贪心算法：</p>
-<blockquote>
-<p>贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。</p>
-<p></p><p align="right">—— OI Wiki</p>
-</blockquote>
-<p><img data-src="https://cdn.jsdelivr.net/gh/henry-ji/tu@main/20220824180430.png" align="right" width="400">接着，我们再来看一眼题目，要想用贪心算法解决问题，我们就需要知道每个子问题的解决方法。如果之于本题，就是探究任意两道题应当如何排序。简单分析可以得到以下结论：</p>
-<ul>
-<li>对于任意两道题（$a$ &amp; $b$），既可以先做 $a$ 也可以先做 $b$</li>
-<li>如果先做 $a$，则用时应为 <code>A.s + max(A.g, B.s) + B.g</code></li>
-<li>如果先做 $b$，则用时应为 <code>B.s + max(B.g, A.s) + A.g</code></li>
-</ul>
-<p>知道了以上几点，程序自然也就不难了。</p>
-<h2 id="三、AC-Code"><a href="#三、AC-Code" class="headerlink" title="三、AC Code"></a>三、AC Code</h2><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><blockquote>
-<p>码风较差，将就着看吧</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">problem</span> &#123;</span><br><span class="line">    <span class="type">int</span> s, g;</span><br><span class="line">&#125; pList[<span class="number">1000000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(problem a, problem b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.s + <span class="built_in">max</span>(a.g, b.s) + b.g &lt; b.s + <span class="built_in">max</span>(b.g, a.s) + a.g;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; pList[i].g;</span><br><span class="line">        <span class="built_in">sort</span>(pList, pList + n, cmp);</span><br><span class="line">        <span class="type">int</span> S = <span class="number">0</span>, G = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            S += pList[i].s;</span><br><span class="line">            <span class="keyword">if</span> (G &lt; S) G = S;</span><br><span class="line">            G += pList[i].g;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; G &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>懒得写排序，先咕着</p>
-]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>洛谷</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
-    <url>/cloudflare-pages.html</url>
-    <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
-<h2 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h2><h3 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h3><p>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
-<h3 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h3><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
-<p>P.S. 关于如何免费注册及激活域名在前往</p>
-<h3 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h3><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
-<h3 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h3><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
-<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
-        <tag>Cloudflare</tag>
-        <tag>freenom</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UVA11945 题解</title>
-    <url>/UVA11945.html</url>
-    <content><![CDATA[<h2 id="一、题目大意"><a href="#一、题目大意" class="headerlink" title="一、题目大意"></a>一、题目大意</h2><p>输入 $n$ 组数据，每组包含 $12$ 个数，求出这 $12$ 个数的平均值并按要求输出</p>
-<h2 id="二、题目分析"><a href="#二、题目分析" class="headerlink" title="二、题目分析"></a>二、题目分析</h2><p>求平均数显然不是难点，这里不再赘述。本题的重难点在于输出，<del>要不然这道题也不会是紫的</del>。</p>
-<p>所以，我们来整理一下本题的逻辑：</p>
-<ol>
-<li>求出平均值</li>
-<li>保留 $2$ 位小数四舍五入</li>
-<li>将答案拆分成两部分</li>
-<li>打印</li>
-</ol>
-<p>理清了逻辑，代码也就不难了</p>
-<blockquote>
-<p>本文使用 Python，C++ 可以看别的题解</p>
-</blockquote>
-<p>这里我们可以利用一些 Python 的特点来简化代码 <del>（Python 党狂喜）</del>，</p>
-<p>我们可以直接将舍入后的答案直接转为字符串，利用 Python 的<strong>切片</strong>进行输出</p>
-<h2 id="三、AC-code"><a href="#三、AC-code" class="headerlink" title="三、AC code"></a>三、AC code</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12</span>):</span><br><span class="line">        s += <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    ans = <span class="built_in">round</span>(s / <span class="number">12</span>, <span class="number">2</span>)</span><br><span class="line">    ansStr = <span class="built_in">str</span>(ans)</span><br><span class="line">    <span class="keyword">if</span> ansStr[-<span class="number">2</span>] == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">        ansStr += <span class="string">&#x27;0&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> ans &gt;= <span class="number">1000</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr[:-<span class="number">6</span>] + <span class="string">&#x27;,&#x27;</span> + ansStr[-<span class="number">6</span>:])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(i + <span class="number">1</span>, <span class="string">&#x27;$&#x27;</span> + ansStr)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>题解</category>
       </categories>
@@ -253,6 +232,27 @@
       </categories>
       <tags>
         <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 Cloudflare 代理 Github Pages 以提升其可访问性</title>
+    <url>/cloudflare-pages.html</url>
+    <content><![CDATA[<h2 id="一、关于-Cloudflare"><a href="#一、关于-Cloudflare" class="headerlink" title="一、关于 Cloudflare"></a>一、关于 Cloudflare</h2><p><a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>是一家美国的跨国科技企业，总部位于旧金山，在英国伦敦亦设有办事处。Cloudflare以向客户提供网站安全管理、性能优化及相关的技术支持为主要业务。通过基于反向代理的内容分发网络(<br>CDN, Content Delivery Network)、任播(Anycast)技术、基于nginx+lua架构的Web应用防火墙(WAF, Web Application<br>Firewall)及分布式域名解析服务(Distributed Domain Name Server)<br>等技术，Cloudflare可以帮助受保护站点抵御包括分布式拒绝服务攻击(DDoS, Distributed Denial of Service)<br>在内的大多数网络攻击，确保该网站长期在线，同时提升网站的性能、访问速度以改善访客体验。</p>
+<h2 id="二、使用-Cloudflare-代理-Github-Pages"><a href="#二、使用-Cloudflare-代理-Github-Pages" class="headerlink" title="二、使用 Cloudflare 代理 Github Pages"></a>二、使用 Cloudflare 代理 Github Pages</h2><h3 id="1）注册-Cloudflare"><a href="#1）注册-Cloudflare" class="headerlink" title="1）注册 Cloudflare"></a>1）注册 Cloudflare</h3><p>进入 <a href="https://www.cloudflare.com/zh-cn/">Cloudflare官网</a>，点击 <code>免费开始使用</code>，根据提示即可完成注册</p>
+<h3 id="2）在-Cloudflare-中添加域名"><a href="#2）在-Cloudflare-中添加域名" class="headerlink" title="2）在 Cloudflare 中添加域名"></a>2）在 Cloudflare 中添加域名</h3><p>进入 Cloudflare 控制台后，点击 <code>网站 &gt; 添加站点</code>，填写你的域名，选择 <code>Free</code> 计划，按照提示激活站点</p>
+<p>P.S. 关于如何免费注册及激活域名在前往</p>
+<h3 id="3）设置-Cloudflare-Pages"><a href="#3）设置-Cloudflare-Pages" class="headerlink" title="3）设置 Cloudflare Pages"></a>3）设置 Cloudflare Pages</h3><p>回到 Cloudflare 控制台首页，点击 <code>Pages &gt; 创建项目 &gt; 连接到 Git &gt; 连接 Github</code>，连接完成后选择 GitHub Pages 对应的仓库，点 <code>开始设置</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/2a0fadd77dcf1636.png" alt="连接 Github"><br><code>生产分支</code> 选择提供 Github Pages 服务的分支，其余设置全部保持默认，点击 <code>保存并部署</code><br><img data-src="https://s3.bmp.ovh/imgs/2022/08/17/9de07fc77acdf2b3.png" alt="项目设置"><br>部署完成后，选择 <code>继续处理项目</code></p>
+<h3 id="4）设置自定义域名"><a href="#4）设置自定义域名" class="headerlink" title="4）设置自定义域名"></a>4）设置自定义域名</h3><p>点击 <code>自定义域 &gt; 设置自定义域 &gt; 输入 2） 中添加的域名</code></p>
+<p>Cloudflare 会自动帮我们配置 DNS 服务，配置完成后即可通过新添加的域名访问 Pages 了</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Cloudflare</tag>
+        <tag>freenom</tag>
       </tags>
   </entry>
   <entry>
@@ -513,6 +513,16 @@
       </tags>
   </entry>
   <entry>
+    <title>洛谷二百粉福利投票</title>
+    <url>/vote.html</url>
+    <content><![CDATA[<p>请把你想看的二百粉福利留在评论区，谢谢</p>
+<p><del>洛谷万岁！</del></p>
+]]></content>
+      <tags>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>XYOI 标程</title>
     <url>/std.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请联系 @X_Z_Y / @Henry-ji 获取密码" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -532,13 +542,21 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷二百粉福利投票</title>
-    <url>/vote.html</url>
-    <content><![CDATA[<p>请把你想看的二百粉福利留在评论区，谢谢</p>
-<p><del>洛谷万岁！</del></p>
+    <title>警告!请暂缓升级 Windows 11 26063</title>
+    <url>/win11-canary.html</url>
+    <content><![CDATA[<p>我在 2/23 升级了 Windows 11 26063 版本，随后遇到了笔记本合上盖子后打开盖子或者连接外部显示器后切换显示模式后系统死机黑屏的问题，经过排查已确认是由 Windows 版本造成，请加入了 Windows 11 Canary/Dev 的用户谨慎升级。</p>
+<p>附上我的系统配置：</p>
+<ul>
+<li>PC: Lenovo Legion R9000X 2021R</li>
+<li>CPU：AMD Ryzen 7 5800H</li>
+<li>GPU: NVIDIA GeForce RTX 3050 Ti Laptop</li>
+</ul>
 ]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
       <tags>
-        <tag>洛谷</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
 </search>

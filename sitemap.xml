@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.henry-ji.tk/win11-canary.html</loc>
+    
+    <lastmod>2024-02-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.henry-ji.tk/office-365.html</loc>
     
     <lastmod>2023-07-12</lastmod>
@@ -200,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://www.henry-ji.tk/lib/bookmark/package.json</loc>
+    <loc>https://www.henry-ji.tk/lib/bookmark/renovate.json</loc>
     
     <lastmod>2022-08-01</lastmod>
     
@@ -209,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://www.henry-ji.tk/lib/bookmark/renovate.json</loc>
+    <loc>https://www.henry-ji.tk/lib/bookmark/package.json</loc>
     
     <lastmod>2022-08-01</lastmod>
     
@@ -256,7 +265,7 @@
 
   <url>
     <loc>https://www.henry-ji.tk/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -264,84 +273,91 @@
   
   <url>
     <loc>https://www.henry-ji.tk/tags/%E6%B4%9B%E8%B0%B7/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/Hexo/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/NexT/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/Cloudflare/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/freenom/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/test/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/JetBrains/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/CLion/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/Jetbrains/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/nexT/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/Microsoft/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/tags/Microsoft-Office/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.henry-ji.tk/tags/Windows/</loc>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -350,28 +366,35 @@
   
   <url>
     <loc>https://www.henry-ji.tk/categories/%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2023-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.henry-ji.tk/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/categories/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.henry-ji.tk/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.henry-ji.tk/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-09-15</lastmod>
+    <lastmod>2024-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.henry-ji.tk/categories/Windows/</loc>
+    <lastmod>2024-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
